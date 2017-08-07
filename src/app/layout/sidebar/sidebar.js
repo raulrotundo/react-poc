@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './sidebar.css';
-//import { FormControl, Button, Image, NavLink } from 'react-bootstrap';
 
 class Sidebar extends Component {
   render() {
