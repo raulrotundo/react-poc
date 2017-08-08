@@ -6,7 +6,6 @@ import Login from './app/login/login';
 import Signup from './app/signup/signup';
 import Layout from './app/layout/layout';
 import NotFound from './app/not-found/not-found';
-import registerServiceWorker from './registerServiceWorker';
 import 'font-awesome/css/font-awesome.css';
 
 ReactDOM.render((
@@ -20,4 +19,3 @@ ReactDOM.render((
     </Switch>
   </Router>
 ), document.getElementById('root'))
-registerServiceWorker();
