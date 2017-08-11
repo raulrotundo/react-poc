@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './sidebar.css';
 
 class Sidebar extends Component {
@@ -6,12 +7,12 @@ class Sidebar extends Component {
     return (
       <nav className="sidebar">
         <ul className="list-group">
-          <a className="list-group-item">
+          <Link to="/app" className="list-group-item">
             <i className="fa fa-fw fa-dashboard"></i>&nbsp;Dashboard
-          </a>
-          <a className="list-group-item">
+          </Link>
+          <Link to="/app/blank-page" className="list-group-item">
             <i className="fa fa-file-o"></i>&nbsp;Blank page
-          </a>
+          </Link>
         </ul>
       </nav>
     );
