@@ -11,7 +11,10 @@ This POC (Proof of concept) is intended to be use as base or demo for projects w
 * [Istanbul](https://github.com/gotwarlost/istanbul) for test coverage.
 
 ### Prerequisites
-* You need to have [NodeJS](https://nodejs.org/en/download/)
+* You need to have [NodeJS](https://nodejs.org/en/download/) and :
+```bash
+npm install -g @angular/cli http-server
+```
 
 ### Installation
 Clone the repo: 
@@ -33,4 +36,9 @@ npm start
 Finally go to:
 ```bash
 http://localhost:3000
+```
+
+Code Coverage Report:
+```bash
+npm run coverage
 ```
