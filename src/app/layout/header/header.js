@@ -3,26 +3,6 @@ import './header.css';
 //import { FormControl, Button, Image, Nav } from 'react-bootstrap';
 
 class Header extends Component {
-
-  sidebarToggle(e) {
-    e.preventDefault();
-    document.body.classList.toggle('sidebar-hidden');
-  }
-
-  sidebarMinimize(e) {
-    e.preventDefault();
-    document.body.classList.toggle('sidebar-minimized');
-  }
-
-  mobileSidebarToggle(e) {
-    e.preventDefault();
-    document.body.classList.toggle('sidebar-mobile-show');
-  }
-
-  asideToggle(e) {
-    e.preventDefault();
-    document.body.classList.toggle('aside-menu-hidden');
-  }
   render() {
     return (
       <div className="pos-f-t fixed-top header">
