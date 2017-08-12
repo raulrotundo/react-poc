@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormControl, Button, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './signup.css';
 import userAvatar from '../../assets/images/logo.png';
 
@@ -25,9 +26,11 @@ class Signup extends Component {
                   <FormControl type="password" className="form-control input-underline input-lg" id="" placeholder="Repeat Password" />
                 </div>
               </div>
-              <Button className="btn rounded-btn" type="submit">Log in</Button>
+              <Link to="/login">
+                <Button className="btn rounded-btn">Log in</Button>
+              </Link>
               &nbsp;
-              <Button className="btn rounded-btn">Register</Button>
+                <Button className="btn rounded-btn">Register</Button>
             </form>
           </div>
         </div>
