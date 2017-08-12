@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './app.css';
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
             <h2>Welcome to React POC</h2>
             <p>This POC (Proof of concept) is intended to be use as base or demo for projects with React.</p>
             <p>
-              <Button href="./login" className="btn rounded-btn">Go to Login Form</Button>
+              <Link to="/login" className="btn rounded-btn">Go to Login Form</Link>
             </p>
           </div>
         </div>
