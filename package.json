@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
+    "express": "^4.15.4",
     "font-awesome": "^4.7.0",
     "node-sass-chokidar": "0.0.3",
+    "nodemon": "^1.11.0",
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.1",
@@ -22,6 +25,7 @@
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "coverage": "react-scripts test --env=jsdom --coverage && http-server -c-1 -o -p 9875 ./coverage/lcov-report/"
+    "coverage": "react-scripts test --env=jsdom --coverage && http-server -c-1 -o -p 9875 ./coverage/lcov-report/",
+    "server": "nodemon --watch server server/index.js"
   }
 }
