@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './login.css';
 import userAvatar from '../../assets/images/logo.png';
-import Authentication from '../shared/services/authentication';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { userLoginRequest } from '../actions/authActions';
+import Alert from '../layout/alert/alert';
 
-export default class Login extends Authentication {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,14 +16,15 @@ export default class Login extends Authentication {
       loginForm: {
         username: '',
         password: ''
-      }
+      },
+      isLoading: false
     };
 
-    this.processForm = this.processForm.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
-  handleInputChange(event) {
+  onChange(event) {
     const field = event.target.name;
     const loginForm = this.state.loginForm;
     loginForm[field] = event.target.value;
@@ -28,28 +32,33 @@ export default class Login extends Authentication {
     this.setState({ loginForm });
   }
 
-  processForm(event) {
-    // Prevent default action. In this case, action is the form submission event
-    event.preventDefault();
-    super.login(this.state.loginForm);
+  onSubmit(e) {
+    e.preventDefault();
+    this.setState({ errors: {}, isLoading: true });
+    this.props.userLoginRequest(this.state.loginForm).then(
+      (res) => this.context.router.history.push('/app'),
+      (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
+    );
   }
 
   render() {
+    const { errors, isLoading } = this.state;
     return (
       <div className="login-page">
         <div className="row">
           <div className="col-md-4 push-md-4">
             <Image src={userAvatar} width="150px" className="user-avatar" />
-            <form onSubmit={this.processForm} noValidate>
+            {errors.msg && <Alert type="danger" message={errors.msg} />}
+            <form onSubmit={this.onSubmit} noValidate>
               <div className="form-content">
                 <div className="form-group">
-                  <input type="text" name="username" onChange={this.handleInputChange} value={this.state.loginForm.username} className="form-control input-underline input-lg" placeholder="Email" />
+                  <input type="text" name="username" onChange={this.onChange} value={this.state.loginForm.username} className="form-control input-underline input-lg" placeholder="Email" />
                 </div>
                 <div className="form-group">
-                  <input type="password" name="password" onChange={this.handleInputChange} value={this.state.loginForm.password} className="form-control input-underline input-lg" placeholder="Password" />
+                  <input type="password" name="password" onChange={this.onChange} value={this.state.loginForm.password} className="form-control input-underline input-lg" placeholder="Password" />
                 </div>
               </div>
-              <button className="btn rounded-btn" type="submit">Log in</button>
+              <button className="btn rounded-btn" type="submit" disabled={isLoading}>Log in</button>
               &nbsp;
               <Link to="/signup">
                 <button className="btn rounded-btn">Register</button>
@@ -61,3 +70,13 @@ export default class Login extends Authentication {
     );
   }
 }
+
+Login.propTypes = {
+  userLoginRequest: PropTypes.func.isRequired
+}
+
+Login.contextTypes = {
+  router: PropTypes.object.isRequired
+}
+
+export default connect((state) => { return {} }, { userLoginRequest })(Login);
