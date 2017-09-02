@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './login.css';
 import userAvatar from '../../../assets/images/logo.png';
@@ -47,7 +46,7 @@ class Login extends Component {
       <div className="login-page">
         <div className="row">
           <div className="col-md-4 push-md-4">
-            <Image src={userAvatar} width="150px" className="user-avatar" />
+            <img src={userAvatar} width="150px" className="user-avatar" alt="" />
             {errors.msg && <Alert type="danger" message={errors.msg} />}
             <form onSubmit={this.onSubmit} noValidate>
               <div className="form-content">

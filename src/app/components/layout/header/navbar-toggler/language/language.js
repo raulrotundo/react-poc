@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
+import { NavDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 class Language extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      dropdownOpen: false
+    };
+  }
+
+  toggle() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  }
+
   render() {
     return (
-      <li className="nav-item dropdown">
-        <a href="/" className="nav-link">
-          <i className="fa fa-language"></i> Language <b className="caret"></b>
-        </a>
-        <div className="dropdown-menu dropdown-menu-right">
-          <a className="dropdown-item" href="/">English</a>
-          <a className="dropdown-item" href="/">French</a>
-          <a className="dropdown-item" href="/">Urdu</a>
-        </div>
-      </li>
+      <NavDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+        <DropdownToggle nav caret><i className="fa fa-language"></i> Language</DropdownToggle>
+        <DropdownMenu>
+          <DropdownItem>English</DropdownItem>
+          <DropdownItem>French</DropdownItem>
+          <DropdownItem>Urdu</DropdownItem>
+        </DropdownMenu>
+      </NavDropdown>
     );
   }
 }

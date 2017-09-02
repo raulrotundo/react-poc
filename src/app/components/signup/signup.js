@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FormControl, Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './signup.css';
 import userAvatar from '../../../assets/images/logo.png';
@@ -10,27 +9,27 @@ class Signup extends Component {
       <div className="login-page">
         <div className="row">
           <div className="col-md-4 push-md-4">
-            <Image src={userAvatar} width="150px" className="user-avatar" />
+            <img src={userAvatar} width="150px" className="user-avatar" alt="" />
             <form noValidate>
               <div className="form-content">
                 <div className="form-group">
-                  <FormControl type="text" className="form-control input-underline input-lg" id="" placeholder="Full Name" />
+                  <input type="text" className="form-control input-underline input-lg" id="" placeholder="Full Name" />
                 </div>
                 <div className="form-group">
-                  <FormControl type="text" className="form-control input-underline input-lg" id="" placeholder="Email" />
+                  <input type="text" className="form-control input-underline input-lg" id="" placeholder="Email" />
                 </div>
                 <div className="form-group">
-                  <FormControl type="password" className="form-control input-underline input-lg" id="" placeholder="Password" />
+                  <input type="password" className="form-control input-underline input-lg" id="" placeholder="Password" />
                 </div>
                 <div className="form-group">
-                  <FormControl type="password" className="form-control input-underline input-lg" id="" placeholder="Repeat Password" />
+                  <input type="password" className="form-control input-underline input-lg" id="" placeholder="Repeat Password" />
                 </div>
               </div>
               <Link to="/login">
-                <Button className="btn rounded-btn">Log in</Button>
+                <button className="btn rounded-btn">Log in</button>
               </Link>
               &nbsp;
-                <Button className="btn rounded-btn">Register</Button>
+                <button className="btn rounded-btn">Register</button>
             </form>
           </div>
         </div>
