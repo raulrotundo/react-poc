@@ -78,4 +78,4 @@ Login.contextTypes = {
   router: PropTypes.object.isRequired
 }
 
-export default connect((state) => { return {} }, { userLoginRequest })(Login);
+export default connect(null, { userLoginRequest })(Login);
