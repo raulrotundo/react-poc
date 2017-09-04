@@ -3,7 +3,7 @@ import setAuthorizationToken from '../utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
 import { SET_CURRENT_USER } from './types';
 
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = process.env.REACT_APP_API_ENPOINT;
 
 export function setCurrentUser(user) {
   return {
