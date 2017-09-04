@@ -6,6 +6,7 @@ This POC (Proof of concept) is intended to be use as base or demo for projects w
 * [NPM](https://www.npmjs.com/) for package manager.
 * [React Create App](https://github.com/facebookincubator/create-react-app) Create React apps with no build configuration.
 * [React Rotuter](https://reacttraining.com/react-router/)  React Router is a collection of navigational components that compose declaratively with your application.
+* [Redux](http://redux.js.org/)  Redux is a predictable state container for JavaScript apps.
 * [Bootstrap](https://www.npmjs.com/package/bootstrap) Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development.
 * [Font Awesome](http://fontawesome.io/) Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, and anything that can be done with the power of CSS.
 * [Jest](https://facebook.github.io/jest/) Delightful JavaScript Testing for test-runner.
