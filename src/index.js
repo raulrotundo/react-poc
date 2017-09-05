@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactGA from 'react-ga';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import setAuthorizationToken from './app/utils/setAuthorizationToken';
@@ -14,14 +15,21 @@ import 'font-awesome/css/font-awesome.css';
 import requireAuth from './app/utils/requireAuth';
 import store from './store';
 
+ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
+
 if (localStorage.jwtToken) {
   setAuthorizationToken(localStorage.jwtToken);
   store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
 }
 
+function logPageView() {
+  ReactGA.set({ page: window.location.pathname + window.location.search });
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
+
 ReactDOM.render((
   <Provider store={store}>
-    <Router>
+    <Router onUpdate={logPageView}>
       <Switch>
         <Route exact path="/" component={App}></Route>
         <Route path="/login" component={Login}></Route>
