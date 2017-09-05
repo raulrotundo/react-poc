@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
-const port = process.env.REACT_APP_SERVER_PORT || 80;
+const port = process.env.REACT_APP_SERVER_PORT || 3001;
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
