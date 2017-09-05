@@ -1,6 +1,7 @@
 ## React POC
 
 This POC (Proof of concept) is intended to be use as base or demo for projects with React.
+Demo: [https://react-app-poc.herokuapp.com](https://react-app-poc.herokuapp.com)
 
 ### What's included?
 * [NPM](https://www.npmjs.com/) for package manager.
