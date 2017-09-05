@@ -2,9 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware, compose } from 'redux';
-import reducer from './app/reducers/index';
 import setAuthorizationToken from './app/utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
 import { setCurrentUser } from './app/actions/authActions';
@@ -15,14 +12,7 @@ import Layout from './app/components/layout/layout';
 import NotFound from './app/components/not-found/not-found';
 import 'font-awesome/css/font-awesome.css';
 import requireAuth from './app/utils/requireAuth';
-
-const store = createStore(
-  reducer,
-  compose(
-    applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  )
-);
+import store from './store';
 
 if (localStorage.jwtToken) {
   setAuthorizationToken(localStorage.jwtToken);
