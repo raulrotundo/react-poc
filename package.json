@@ -4,15 +4,10 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
-    "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
-    "dotenv": "^4.0.0",
-    "express": "^4.15.4",
     "font-awesome": "^4.7.0",
-    "jsonwebtoken": "^7.4.3",
     "jwt-decode": "^2.2.0",
     "node-sass-chokidar": "0.0.3",
-    "nodemon": "^1.11.0",
     "npm-run-all": "^4.0.2",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -31,11 +26,10 @@
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js server",
+    "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "coverage": "react-scripts test --env=jsdom --coverage && http-server -c-1 -o -p 9875 ./coverage/lcov-report/",
-    "server": "nodemon --watch server server/index.js"
+    "coverage": "react-scripts test --env=jsdom --coverage && http-server -c-1 -o -p 9875 ./coverage/lcov-report/"
   }
 }
