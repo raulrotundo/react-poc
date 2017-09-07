@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER } from '../actions/types';
+import * as types from '../constants/actionTypes';
 
 const initialState = {
   isAuthenticated: false,
@@ -7,7 +7,7 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case SET_CURRENT_USER:
+    case types.SET_CURRENT_USER:
       return {
         isAuthenticated: Object.keys(action.user).length === 0 ? false : true,
         user: action.user
