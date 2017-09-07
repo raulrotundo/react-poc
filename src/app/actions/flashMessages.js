@@ -1,15 +1,15 @@
-import { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } from './types';
+import * as types from '../constants/actionTypes';
 
 export function addFlashMessage(message) {
   return {
-    type: ADD_FLASH_MESSAGE,
+    type: types.ADD_FLASH_MESSAGE,
     message
   }
 }
 
 export function deleteFlashMessage(id) {
   return {
-    type: DELETE_FLASH_MESSAGE,
+    type: types.DELETE_FLASH_MESSAGE,
     id
   }
 }
