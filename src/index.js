@@ -24,11 +24,11 @@ ReactDOM.render((
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/" component={App}></Route>
-        <Route path="/login" component={Login}></Route>
-        <Route path="/signup" component={Signup}></Route>
+        <Route exact path="/" component={withTracker(App)}></Route>
+        <Route path="/login" component={withTracker(Login)}></Route>
+        <Route path="/signup" component={withTracker(Signup)}></Route>
         <Route path="/app" component={withTracker(requireAuth(Layout))}></Route>
-        <Route component={NotFound}></Route>
+        <Route component={withTracker(NotFound)}></Route>
       </Switch>
     </Router>
   </Provider>
