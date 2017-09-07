@@ -2,8 +2,7 @@ import React from 'react';
 import GoogleAnalytics from 'react-ga';
 
 GoogleAnalytics.initialize(process.env.REACT_APP_GA_TRACKING_ID, {
-  'cookieDomain': 'auto',
-  'debug': true
+  'cookieDomain': 'auto'
 });
 
 const withTracker = (WrappedComponent) => {
