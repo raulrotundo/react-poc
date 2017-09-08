@@ -2,10 +2,11 @@
 
 This POC (Proof of concept) is intended to be use as base or demo for projects with React.
 
+There is also another repository that serves backend data: https://github.com/raulrotundo/nodejs-server-poc
+
 Demo: [https://react-app-poc.herokuapp.com](https://react-app-poc.herokuapp.com)
 
 User: Bret
-
 Password: 1234
 
 ### What's included?
