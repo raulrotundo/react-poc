@@ -29,7 +29,7 @@ class Sidebar extends Component {
             <li className={this.state.showMenu === 'order' ? 'nested expand' : 'nested'}>
               <ul className="submenu">
                 <li>
-                  <Link to="/app/orders/new-order" className="list-group-item">
+                  <Link to="/app/orders/review-orders" className="list-group-item">
                     <span><i className="fa fa-chevron-right"></i>&nbsp; Review Orders</span>
                   </Link>
                 </li>
