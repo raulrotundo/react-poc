@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { logout } from '../../../../../actions/authActions';
+import { logout } from '../../../../../redux/actions/auth';
 
 class UserDropdownMenu extends Component {
   constructor(props) {

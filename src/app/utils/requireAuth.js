@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addFlashMessage } from '../actions/flashMessages';
+import { addFlashMessage } from '../redux/actions/flashMessages';
 
 export default function(ComposedComponent) {
   class Authenticate extends React.Component {

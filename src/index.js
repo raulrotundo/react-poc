@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import setAuthorizationToken from './app/utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
-import { setCurrentUser } from './app/actions/authActions';
+import { setCurrentUser } from './app/redux/actions/auth';
 import App from './app/app';
 import Login from './app/components/login/login';
 import Signup from './app/components/signup/signup';
