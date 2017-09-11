@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './login.css';
-import userAvatar from '../../../assets/images/logo.png';
+import userAvatar from 'assets/images/logo.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { userLoginRequest } from '../../redux/actions/auth';
-import Alert from '../../components/layout/alert/alert';
+import { userLoginRequest } from 'redux/actions/auth';
+import Alert from 'components/layout/alert/alert';
 
 class Login extends Component {
   constructor(props) {

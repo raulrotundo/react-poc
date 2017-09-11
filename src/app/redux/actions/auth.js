@@ -1,7 +1,7 @@
 import axios from 'axios';
-import setAuthorizationToken from '../../utils/setAuthorizationToken';
+import setAuthorizationToken from 'utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
-import * as types from '../../constants/actionTypes';
+import * as types from 'constants/actionTypes';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_ENPOINT;
 

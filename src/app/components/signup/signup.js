@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './signup.css';
-import userAvatar from '../../../assets/images/logo.png';
+import userAvatar from 'assets/images/logo.png';
 
 class Signup extends Component {
   render() {

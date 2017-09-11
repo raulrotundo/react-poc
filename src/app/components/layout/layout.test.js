@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '../../redux/store';
+import store from 'redux/store';
 import Layout from './layout';
 
 describe('Layout', () => {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PageHeader from '../../../../shared/page-header/page-header';
+import PageHeader from 'components/shared/page-header/page-header';
 
 class NewOrder extends Component {
   render() {
