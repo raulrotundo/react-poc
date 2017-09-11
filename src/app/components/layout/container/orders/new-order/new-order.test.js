@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MemoryRouter } from 'react-router-dom';
 import NewOrder from './new-order';
 
-it('render NewOrder page without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<NewOrder />, div);
+describe('NewOrder', () => {
+  it('render NewOrder without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(
+      <MemoryRouter>
+        <NewOrder />
+      </MemoryRouter>
+    , div)
+  });
 });
