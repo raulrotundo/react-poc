@@ -12,7 +12,7 @@ import Layout from './app/components/layout/layout';
 import NotFound from './app/components/not-found/not-found';
 import 'font-awesome/css/font-awesome.css';
 import requireAuth from './app/utils/requireAuth';
-import store from './store';
+import store from './app/redux/store';
 import withTracker from './app/utils/withTracker';
 
 if (localStorage.jwtToken) {

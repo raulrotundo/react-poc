@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '../../../../../../store';
+import store from '../../../../../redux/store';
 import UserDropdownMenu from './user-dropdown-menu';
 
 describe('UserDropdownMenu', () => {
