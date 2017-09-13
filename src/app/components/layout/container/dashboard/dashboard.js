@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Stat from 'components/shared/stat/stat';
 
-class Dashboard extends Component {
-  render() {
-    return (
-      <div>
-        <h2 className="page-header">Dashboard</h2>
-        <div className="row">
-          <div className="col-xl-3 col-lg-6">
-            <Stat cardClass="card-primary" title="Title 1" />
-          </div>
-          <div className="col-xl-3 col-lg-6">
-            <Stat cardClass="card-info" title="Title 2" />
-          </div>
-          <div className="col-xl-3 col-lg-6">
-            <Stat cardClass="card-success" title="Title 3" />
-          </div>
-          <div className="col-xl-3 col-lg-6">
-            <Stat cardClass="card-danger" title="Title 4" />
-          </div>
+const Dashboard = () => {
+  return (
+    <div>
+      <h2 className="page-header">Dashboard</h2>
+      <div className="row">
+        <div className="col-xl-3 col-lg-6">
+          <Stat cardClass="card-primary" title="Title 1" />
+        </div>
+        <div className="col-xl-3 col-lg-6">
+          <Stat cardClass="card-info" title="Title 2" />
+        </div>
+        <div className="col-xl-3 col-lg-6">
+          <Stat cardClass="card-success" title="Title 3" />
+        </div>
+        <div className="col-xl-3 col-lg-6">
+          <Stat cardClass="card-danger" title="Title 4" />
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Dashboard;
