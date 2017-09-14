@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PageHeader from 'components/shared/page-header/page-header';
 
-class ReviewOrders extends Component {
-  render() {
+const ReviewOrders = () => {
     return (
       <div>
         <PageHeader heading="Review Orders" />
         <div>Review Orders Page</div>
       </div>
     );
-  }
 }
 
 export default ReviewOrders;

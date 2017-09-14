@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-import ReviewOrders from './review-orders';
+import ReviewOrders from '../../components/review-orders';
 
 describe('ReviewOrders', () => {
   it('render ReviewOrders without crashing', () => {

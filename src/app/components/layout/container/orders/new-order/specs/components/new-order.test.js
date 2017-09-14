@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-import NewOrder from './new-order';
+import NewOrder from '../../components/new-order';
 
 describe('NewOrder', () => {
   it('render NewOrder without crashing', () => {
