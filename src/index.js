@@ -5,11 +5,11 @@ import { Provider } from 'react-redux';
 import setAuthorizationToken from './app/utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
 import { setCurrentUser } from './app/redux/actions/auth';
-import App from './app/app';
-import Login from './app/components/login/login';
-import Signup from './app/components/signup/signup';
-import Layout from './app/components/layout/layout';
-import NotFound from './app/components/not-found/not-found';
+import Home from './app/modules/home/home-container';
+import Login from './app/modules/login/login';
+import Signup from './app/modules/signup/signup';
+import Layout from './app/modules/layout/layout';
+import NotFound from './app/modules/not-found/not-found';
 import 'font-awesome/css/font-awesome.css';
 import requireAuth from './app/utils/requireAuth';
 import store from './app/redux/store';
@@ -24,7 +24,7 @@ ReactDOM.render((
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/" component={withTracker(App)}></Route>
+        <Route exact path="/" component={withTracker(Home)}></Route>
         <Route path="/login" component={withTracker(Login)}></Route>
         <Route path="/signup" component={withTracker(Signup)}></Route>
         <Route path="/app" component={withTracker(requireAuth(Layout))}></Route>

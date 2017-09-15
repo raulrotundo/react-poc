@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from './header/header';
 import Sidebar from './sidebar/sidebar';
-import NewOrderContainer from './container/orders/new-order/new-order-container';
-import ReviewOrdersContainer from './container/orders/review-orders/review-orders-container';
-import DashboardContainer from './container/dashboard/dashboard-container';
+import NewOrderContainer from './content/orders/new-order/new-order-container';
+import ReviewOrdersContainer from './content/orders/review-orders/review-orders-container';
+import DashboardContainer from './content/dashboard/dashboard-container';
 import './layout.css';
 
 class Layout extends Component {

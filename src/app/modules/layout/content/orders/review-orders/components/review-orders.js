@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHeader from 'components/shared/page-header/page-header';
+import PageHeader from 'modules/shared/page-header/page-header';
 
 const ReviewOrders = () => {
     return (

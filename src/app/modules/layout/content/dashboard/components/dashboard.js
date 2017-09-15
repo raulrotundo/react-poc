@@ -1,5 +1,5 @@
 import React from 'react';
-import Stat from 'components/shared/stat/stat';
+import Stat from 'modules/shared/stat/stat';
 
 const Dashboard = () => {
   return (
