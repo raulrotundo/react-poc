@@ -1,22 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import NewOrder from './components/new-order';
+import { setNewOrderStep } from './new-order-actions';
 
 class NewOrderContainer extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      activeStep: 1
-    }
+  constructor(props) {
+    super(props);
+    this.getNewOrderStep = this.getNewOrderStep.bind(this);
   }
 
-  showStepContent(stepSelected) {
-    console.log(stepSelected);
+  getNewOrderStep(stepSelected) {
+    this.props.getNewOrderStep(stepSelected);
   }
 
   render() {
-    return <NewOrder activeStep={this.state.activeStep} showStepContent={this.showStepContent} />;
+    return <NewOrder activeStep={this.props.form.orderStep} getNewOrderStep={this.getNewOrderStep} />;
   }
 }
 
-export default NewOrderContainer;
+const mapStateToProps = state => {
+  return state.newOrder;
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getNewOrderStep: (step) => { dispatch(setNewOrderStep(step)) }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewOrderContainer);

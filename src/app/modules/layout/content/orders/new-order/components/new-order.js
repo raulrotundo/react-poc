@@ -4,18 +4,18 @@ import NewOrderSteps from './new-order-steps';
 import NewOrderStep1 from './new-order-step1';
 
 const NewOrder = (props) => {
-  const { activeStep, showStepContent } = props;
+  const { activeStep, getNewOrderStep } = props;
   return (
     <div>
       <PageHeader heading="New Order" />
       <div className="row">
         <div className="col-xl-12">
-          <NewOrderSteps activeStep={activeStep} showStepContent={showStepContent} />
+          <NewOrderSteps activeStep={activeStep} getNewOrderStep={getNewOrderStep} />
         </div>
       </div>
       <div className="row">
         <div className="col-xl-12">
-          <NewOrderStep1 />
+          <NewOrderStep1 activeStep={activeStep} />
         </div>
       </div>
     </div>

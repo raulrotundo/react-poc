@@ -1,11 +1,12 @@
 import React from 'react';
 
-const NewOrderStep1Component = () => {
+const NewOrderStep1Component = (props) => {
+  const { activeStep } = props;
   return (
     <div className="card">
-      <div className="card-header">Title Step 1</div>
+      <div className="card-header">Title Step {activeStep}</div>
       <div className="card-block">
-        Step 1 Content
+        Step {activeStep} Content
         </div>
     </div>
   );
