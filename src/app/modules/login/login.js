@@ -5,7 +5,7 @@ import userAvatar from 'assets/images/logo.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { userLoginRequest } from 'redux/actions/auth';
-import Alert from 'modules/layout/alert/alert';
+import AlertComponent from 'modules/layout/alert/alert-component';
 
 class Login extends Component {
   constructor(props) {
@@ -47,7 +47,7 @@ class Login extends Component {
         <div className="row">
           <div className="col-md-4 push-md-4">
             <img src={userAvatar} width="150px" className="user-avatar" alt="" />
-            {errors.msg && <Alert type="danger" message={errors.msg} />}
+            {errors.msg && <AlertComponent type="danger" message={errors.msg} />}
             <form onSubmit={this.onSubmit} noValidate>
               <div className="form-content">
                 <div className="form-group">
