@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-import PageHeader from './page-header';
+import PageHeaderComponent from './page-header-component';
 
-describe('PageHeader', () => {
-  it('render PageHeader without crashing', () => {
+describe('PageHeaderComponent', () => {
+  it('render PageHeaderComponent without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <MemoryRouter>
-        <PageHeader />
+        <PageHeaderComponent />
       </MemoryRouter>
     , div)
   });
