@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import NewOrder from './components/new-order';
+import NewOrderComponent from './new-order-component';
 import { setNewOrderStep } from './new-order-actions';
 
 class NewOrderContainer extends Component {
@@ -15,7 +15,7 @@ class NewOrderContainer extends Component {
   }
 
   render() {
-    return <NewOrder activeStep={this.props.form.orderStep} getNewOrderStep={this.getNewOrderStep} />;
+    return <NewOrderComponent activeStep={this.props.form.orderStep} getNewOrderStep={this.getNewOrderStep} />;
   }
 }
 
