@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-import NewOrderSteps from './new-order-steps';
+import NewOrderStepsComponent from './new-order-steps-component';
 
-describe('NewOrderSteps', () => {
-  it('render NewOrderSteps without crashing', () => {
+describe('NewOrderStepsComponent', () => {
+  it('render NewOrderStepsComponent without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <MemoryRouter>
-        <NewOrderSteps />
+        <NewOrderStepsComponent />
       </MemoryRouter>
     , div)
   });
