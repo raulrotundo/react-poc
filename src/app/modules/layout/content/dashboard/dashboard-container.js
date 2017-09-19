@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Dashboard from './components/dashboard';
+import DashboardComponent from './dashboard-component';
 
 class DashboardContainer extends Component {
 
   render() {
-    return <Dashboard />;
+    return <DashboardComponent />;
   }
 }
 
