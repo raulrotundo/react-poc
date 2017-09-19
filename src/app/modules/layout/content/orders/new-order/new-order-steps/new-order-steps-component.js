@@ -1,7 +1,7 @@
 import React from 'react';
-import './new-order-steps.css';
+import './new-order-steps-component.css';
 
-const NewOrderSteps = (props) => {
+const NewOrderStepsComponent = (props) => {
     const { activeStep, getNewOrderStep } = props;
     return (
       <div className="new-order-step">
@@ -29,4 +29,4 @@ const NewOrderSteps = (props) => {
     );
 }
 
-export default NewOrderSteps;
+export default NewOrderStepsComponent;
