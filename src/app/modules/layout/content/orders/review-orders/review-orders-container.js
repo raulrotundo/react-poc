@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ReviewOrders from './components/review-orders';
+import ReviewOrdersComponent from './review-orders-component';
 
 class ReviewOrdersContainer extends Component {
 
   render() {
-    return <ReviewOrders />;
+    return <ReviewOrdersComponent />;
   }
 }
 

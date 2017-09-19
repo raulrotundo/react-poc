@@ -1,7 +1,7 @@
 import React from 'react';
 import PageHeader from 'modules/shared/page-header/page-header';
 
-const ReviewOrders = () => {
+const ReviewOrdersComponent = () => {
     return (
       <div>
         <PageHeader heading="Review Orders" />
@@ -10,4 +10,4 @@ const ReviewOrders = () => {
     );
 }
 
-export default ReviewOrders;
+export default ReviewOrdersComponent;
