@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-import Sidebar from './sidebar';
+import SidebarComponent from './sidebar-component';
 
-describe('Sidebar', () => {
-  it('render sidebar without crashing', () => {
+describe('SidebarComponent', () => {
+  it('render SidebarComponent without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <MemoryRouter>
-        <Sidebar />
+        <SidebarComponent />
       </MemoryRouter>
     , div)
   });

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from './header/header';
-import Sidebar from './sidebar/sidebar';
+import SidebarContainer from './sidebar/sidebar-container';
 import NewOrderContainer from './content/orders/new-order/new-order-container';
 import ReviewOrdersContainer from './content/orders/review-orders/review-orders-container';
 import DashboardContainer from './content/dashboard/dashboard-container';
@@ -17,7 +17,7 @@ class Layout extends Component {
     return (
       <div>
         <Header />
-        <Sidebar />
+        <SidebarContainer />
         <section className="main-container">
           <Switch>
             <Route exact path={this.match.url} component={DashboardContainer} />
