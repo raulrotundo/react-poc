@@ -6,7 +6,7 @@ There is also another repository that serves backend data: https://github.com/ra
 
 Demo: [https://react-app-poc.herokuapp.com](https://react-app-poc.herokuapp.com)
 
-User: Bret
+User: bret
 Password: 1234
 
 ### What's included?
