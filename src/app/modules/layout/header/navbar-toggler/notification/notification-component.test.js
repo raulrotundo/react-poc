@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-import Notification from './notification';
+import NotificationComponent from './notification-component';
 
-describe('Notification', () => {
-  it('render Notification without crashing', () => {
+describe('NotificationComponent', () => {
+  it('render NotificationComponent without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <MemoryRouter>
-        <Notification />
+        <NotificationComponent />
       </MemoryRouter>
     , div)
   });
