@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-import Language from './language';
+import LanguageComponent from './language-component';
 
-describe('Language', () => {
-  it('render Language without crashing', () => {
+describe('LanguageComponent', () => {
+  it('render LanguageComponent without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <MemoryRouter>
-        <Language />
+        <LanguageComponent />
       </MemoryRouter>
     , div)
   });
