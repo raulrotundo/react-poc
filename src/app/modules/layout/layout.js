@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Header from './header/header';
+import HeaderContainer from './header/header-container';
 import SidebarContainer from './sidebar/sidebar-container';
 import NewOrderContainer from './content/orders/new-order/new-order-container';
 import ReviewOrdersContainer from './content/orders/review-orders/review-orders-container';
@@ -16,7 +16,7 @@ class Layout extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <HeaderContainer />
         <SidebarContainer />
         <section className="main-container">
           <Switch>
