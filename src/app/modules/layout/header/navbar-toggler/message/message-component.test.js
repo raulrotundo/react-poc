@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-import Message from './message';
+import MessageComponent from './message-component';
 
-describe('Message', () => {
-  it('render Message without crashing', () => {
+describe('MessageComponent', () => {
+  it('render MessageComponent without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <MemoryRouter>
-        <Message />
+        <MessageComponent />
       </MemoryRouter>
     , div)
   });
