@@ -2,9 +2,10 @@ import React from 'react';
 import { NavDropdown, DropdownToggle, DropdownMenu, DropdownItem, Media } from 'reactstrap';
 
 const MessageComponent = (props) => {
-  const { dropdownOpen, setNavbarTogglerDropDown } = props;
+  const { activeNavbarToggler, setNavbarTogglerDropDown } = props;
+  let activeNavbarTogglerIsOpen = activeNavbarToggler === 'message' ? true : false;
   return (
-    <NavDropdown isOpen={dropdownOpen} toggle={setNavbarTogglerDropDown}>
+    <NavDropdown isOpen={activeNavbarTogglerIsOpen} toggle={() => setNavbarTogglerDropDown('message')}>
       <DropdownToggle nav caret><i className="fa fa-envelope"></i></DropdownToggle>
       <DropdownMenu className="dropdown-menu dropdown-menu-right messages">
         <DropdownItem>
