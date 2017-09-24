@@ -2,7 +2,7 @@ import * as types from 'constants/actionTypes';
 
 const initialState = {
   toggler: {
-    dropdownOpen: false
+    activeNavbarToggler: ''
   }
 };
 
@@ -11,7 +11,7 @@ export default (state = initialState, action = {}) => {
     case types.SET_NAVBAR_TOGGLER_DROPDOWN:
       return {
         toggler: {
-          dropdownOpen: action.dropdownOpen
+          activeNavbarToggler: action.activeNavbarToggler
         }
       };
     default: return state;
