@@ -11,20 +11,24 @@ class NavbarTogglerContainer extends Component {
   }
 
   setNavbarTogglerDropDown(navbarToggler) {
-    let activeNavbarToggler = navbarToggler === this.props.toggler.activeNavbarToggler ? '' : navbarToggler;
+    let activeNavbarToggler = navbarToggler === this.props.navbar.toggler.activeNavbarToggler ? '' : navbarToggler;
     this.props.setNavbarTogglerDropDown(activeNavbarToggler);
   }
 
   render() {
     return <NavbarTogglerComponent
-      activeNavbarToggler={this.props.toggler.activeNavbarToggler}
+      activeNavbarToggler={this.props.navbar.toggler.activeNavbarToggler}
       setNavbarTogglerDropDown={this.setNavbarTogglerDropDown}
+      auth={this.props.auth}
     />;
   }
 }
 
 const mapStateToProps = state => {
-  return state.navbar;
+  return {
+    navbar: state.navbar,
+    auth: state.auth
+  };
 }
 
 const mapDispatchToProps = dispatch => {
