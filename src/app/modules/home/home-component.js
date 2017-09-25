@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const HomeComponent = () => {
   return (
     <div className="container">
       <div className="row text-center">
@@ -17,4 +17,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default HomeComponent;
