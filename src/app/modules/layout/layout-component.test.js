@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from 'redux/store';
-import Layout from './layout';
+import LayoutComponent from './layout-component';
 
 describe('Layout', () => {
   let props;
@@ -16,12 +16,12 @@ describe('Layout', () => {
     };
   });
 
-  it('render Layout without crashing', () => {
+  it('render LayoutComponent without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <Provider store={store}>
         <MemoryRouter>
-          <Layout {...props} />
+          <LayoutComponent {...props} />
         </MemoryRouter>
       </Provider>
       , div);

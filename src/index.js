@@ -8,7 +8,7 @@ import { setCurrentUser } from 'redux/actions/auth';
 import HomeContainer from 'modules/home/home-container';
 import Login from 'modules/login/login';
 import Signup from 'modules/signup/signup';
-import Layout from 'modules/layout/layout';
+import LayoutComponent from 'modules/layout/layout-component';
 import NotFound from 'modules/not-found/not-found';
 import 'font-awesome/css/font-awesome.css';
 import 'assets/styles/main.css';
@@ -28,7 +28,7 @@ ReactDOM.render((
         <Route exact path="/" component={withTracker(HomeContainer)}></Route>
         <Route path="/login" component={withTracker(Login)}></Route>
         <Route path="/signup" component={withTracker(Signup)}></Route>
-        <Route path="/app" component={withTracker(requireAuth(Layout))}></Route>
+        <Route path="/app" component={withTracker(requireAuth(LayoutComponent))}></Route>
         <Route component={withTracker(NotFound)}></Route>
       </Switch>
     </Router>
