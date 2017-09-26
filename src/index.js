@@ -9,7 +9,7 @@ import HomeContainer from 'modules/home/home-container';
 import Login from 'modules/login/login';
 import Signup from 'modules/signup/signup';
 import LayoutComponent from 'modules/layout/layout-component';
-import NotFound from 'modules/not-found/not-found';
+import NotFoundComponent from 'modules/not-found/not-found-component';
 import 'font-awesome/css/font-awesome.css';
 import 'assets/styles/main.css';
 import requireAuth from 'utils/requireAuth';
@@ -29,7 +29,7 @@ ReactDOM.render((
         <Route path="/login" component={withTracker(Login)}></Route>
         <Route path="/signup" component={withTracker(Signup)}></Route>
         <Route path="/app" component={withTracker(requireAuth(LayoutComponent))}></Route>
-        <Route component={withTracker(NotFound)}></Route>
+        <Route component={withTracker(NotFoundComponent)}></Route>
       </Switch>
     </Router>
   </Provider>
