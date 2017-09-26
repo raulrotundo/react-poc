@@ -8,7 +8,6 @@ import DashboardContainer from './content/dashboard/dashboard-container';
 import './layout-component.css';
 
 const LayoutComponent = (props) => {
-  console.log(props)
   const { match } = props;
   return (
     <div>
