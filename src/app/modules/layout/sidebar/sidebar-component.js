@@ -22,7 +22,7 @@ const SidebarComponent = (props) => {
                 </Link>
               </li>
               <li>
-                <Link to="/app/orders/new-order" className="list-group-item">
+                <Link to="/app/orders/new-order/step1" className="list-group-item">
                   <span><i className="fa fa-chevron-right"></i>&nbsp; New Order</span>
                 </Link>
               </li>
