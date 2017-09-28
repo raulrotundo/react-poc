@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SidebarComponent from './sidebar-component';
-import { setExpandClass } from './sidebar-actions';
+import { setExpandClass } from 'redux/actions/sidebar';
 
 class SidebarContainer extends Component {
 

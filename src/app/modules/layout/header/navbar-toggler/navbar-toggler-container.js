@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NavbarTogglerComponent from './navbar-toggler-component';
-import { setNavbarTogglerDropDown } from './navbar-toggler-actions';
+import { setNavbarTogglerDropDown } from 'redux/actions/navbar-toggler';
 
 class NavbarTogglerContainer extends Component {
 

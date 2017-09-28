@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NewOrderComponent from './new-order-component';
-import { setNewOrderStep } from './new-order-actions';
+import { setNewOrderStep } from 'redux/actions/new-order';
 
 class NewOrderContainer extends Component {
 
