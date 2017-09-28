@@ -15,7 +15,11 @@ class NewOrderContainer extends Component {
   }
 
   render() {
-    return <NewOrderComponent activeStep={this.props.form.orderStep} getNewOrderStep={this.getNewOrderStep} />;
+    return <NewOrderComponent
+      activeStep={this.props.form.orderStep}
+      getNewOrderStep={this.getNewOrderStep}
+      match={this.props.match}
+    />;
   }
 }
 
