@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import withTracker from 'utils/withTracker';
 import HeaderContainer from './header/header-container';
 import SidebarContainer from './sidebar/sidebar-container';
 import NewOrderContainer from './content/orders/new-order/new-order-container';
@@ -20,7 +19,7 @@ const LayoutComponent = (props) => {
           <Route exact path={match.url} component={DashboardContainer} />
           <Route exact path={`${match.url}/orders/review-orders`} component={ReviewOrdersContainer} />
           <Route path={`${match.url}/orders/new-order`} component={NewOrderContainer} />
-          <Route component={withTracker(NotFoundContentComponent)}></Route>
+          <Route component={NotFoundContentComponent}></Route>
         </Switch>
       </section>
     </div>
