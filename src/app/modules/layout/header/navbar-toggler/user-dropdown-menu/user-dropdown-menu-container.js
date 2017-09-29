@@ -27,6 +27,13 @@ class UserDropdownMenuContainer extends Component {
   }
 }
 
+UserDropdownMenuContainer.propTypes = {
+  auth: PropTypes.object.isRequired,
+  activeNavbarToggler: PropTypes.string.isRequired,
+  setNavbarTogglerDropDown: PropTypes.func.isRequired,
+  onLogout: PropTypes.func.isRequired
+};
+
 UserDropdownMenuContainer.contextTypes = {
   router: PropTypes.object.isRequired
 }
