@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import SidebarComponent from './sidebar-component';
 import { setExpandClass } from 'redux/actions/sidebar';
 
@@ -19,6 +20,11 @@ class SidebarContainer extends Component {
     return <SidebarComponent activeMenu={this.props.sidebar.activeMenu} setExpandClass={this.setExpandClass} />;
   }
 }
+
+SidebarContainer.propTypes = {
+  sidebar: PropTypes.object.isRequired,
+  setExpandClass: PropTypes.func.isRequired  
+};
 
 const mapStateToProps = state => {
   return state.sidebar;
