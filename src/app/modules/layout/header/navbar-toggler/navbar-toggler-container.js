@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import NavbarTogglerComponent from './navbar-toggler-component';
 import { setNavbarTogglerDropDown } from 'redux/actions/navbar-toggler';
 
@@ -23,6 +24,12 @@ class NavbarTogglerContainer extends Component {
     />;
   }
 }
+
+NavbarTogglerContainer.propTypes = {
+  navbar: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
+  setNavbarTogglerDropDown: PropTypes.func.isRequired  
+};
 
 const mapStateToProps = state => {
   return {
