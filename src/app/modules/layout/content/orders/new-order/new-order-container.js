@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import NewOrderComponent from './new-order-component';
 import { setNewOrderStep } from 'redux/actions/new-order';
 
@@ -22,6 +23,12 @@ class NewOrderContainer extends Component {
     />;
   }
 }
+
+NewOrderContainer.propTypes = {
+  form: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  getNewOrderStep: PropTypes.func.isRequired  
+};
 
 const mapStateToProps = state => {
   return state.newOrder;
