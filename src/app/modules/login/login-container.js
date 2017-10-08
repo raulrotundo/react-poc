@@ -11,6 +11,12 @@ class LoginContanier extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  componentWillMount() {
+    if (this.props.isAuthenticated) {
+      this.context.router.history.push('/app')
+    }
+  }
+
   onChange(event) {
     const field = event.target.name;
     const loginForm = this.props.form;
