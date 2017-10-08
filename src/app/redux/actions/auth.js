@@ -12,6 +12,30 @@ export function setCurrentUser(user) {
   };
 }
 
+export function setLoginError(form, error) {
+  Object.assign(form, { isLoading: false });
+  return {
+    type: types.SET_LOGIN_ERROR,
+    error,
+    form
+  }
+}
+
+export function startingLoginCall(form, isLoading) {
+  Object.assign(form, { isLoading: true });
+  return {
+    type: types.STARTING_LOGIN_CALL,
+    form
+  }
+}
+
+export function handleInputChange(form) {
+  return {
+    type: types.HANDLE_INPUT_CHANGE,
+    form
+  }
+}
+
 export function logout() {
   return dispatch => {
     localStorage.removeItem('jwtToken');
@@ -20,13 +44,20 @@ export function logout() {
   }
 }
 
-export function userLoginRequest(data) {
+export function userLoginRequest(formData) {
   return dispatch => {
-    return axios.post('/api/authenticate', data).then(res => {
+    dispatch(startingLoginCall(formData));
+    return axios.post('/api/authenticate', formData).then(res => {
       const token = res.data.token;
       localStorage.setItem('jwtToken', token);
       setAuthorizationToken(token);
       dispatch(setCurrentUser(jwtDecode(token)));
+    }).catch((err) => {
+      if (!err.response) {
+        dispatch(setLoginError(formData, { msg: 'Network Error' }));
+      } else {
+        dispatch(setLoginError(formData, err.response.data.errors));
+      }
     });
   }
 }
