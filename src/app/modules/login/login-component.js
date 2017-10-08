@@ -21,7 +21,9 @@ const LoginComponent = (props) => {
                 <input type="password" name="password" onChange={onChange} className="form-control input-underline input-lg" placeholder="Password" />
               </div>
             </div>
-            <button className="btn rounded-btn" type="submit" disabled={form.isLoading}>Log in</button>
+            <button className="btn rounded-btn" type="submit" disabled={form.isLoading}>
+              Log in <i className={form.isLoading ? 'fa fa-spinner fa-pulse' : 'hide'}></i>
+            </button>
             &nbsp;
             <Link to="/signup">
               <button className="btn rounded-btn">Register</button>
