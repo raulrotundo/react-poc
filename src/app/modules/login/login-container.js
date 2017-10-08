@@ -13,7 +13,7 @@ class LoginContanier extends Component {
 
   componentWillMount() {
     if (this.props.isAuthenticated) {
-      this.context.router.history.push('/app')
+      this.context.router.history.push('/app');
     }
   }
 
