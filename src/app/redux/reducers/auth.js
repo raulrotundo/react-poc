@@ -18,7 +18,10 @@ export default (state = initialState, action = {}) => {
     case types.SET_CURRENT_USER:
       return Object.assign({}, state, {
         isAuthenticated: Object.keys(action.user).length === 0 ? false : true,
-        user: action.user
+        user: action.user,
+        form: {
+          isLoading: false
+        }
       });
     case types.STARTING_LOGIN_CALL:
       return Object.assign({}, state, {
