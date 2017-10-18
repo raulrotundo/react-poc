@@ -30,7 +30,6 @@ class UserDropdownMenuContainer extends Component {
 UserDropdownMenuContainer.propTypes = {
   auth: PropTypes.object.isRequired,
   activeNavbarToggler: PropTypes.string.isRequired,
-  setNavbarTogglerDropDown: PropTypes.func.isRequired,
   onLogout: PropTypes.func.isRequired
 };
 
@@ -41,7 +40,8 @@ UserDropdownMenuContainer.contextTypes = {
 const mapStateToProps = state => {
   return {
     navbar: state.navbar,
-    auth: state.auth
+    auth: state.auth,
+    activeNavbarToggler: state.navbar.toggler.activeNavbarToggler
   };
 }
 
