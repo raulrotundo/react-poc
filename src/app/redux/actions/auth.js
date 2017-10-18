@@ -61,3 +61,25 @@ export function userLoginRequest(formData) {
     });
   }
 }
+
+export function checkTokenExpiration() {
+  return dispatch => {
+    if (localStorage.jwtToken) {
+      const jwt = jwtDecode(localStorage.jwtToken);
+      const current_time = new Date().getTime() / 1000;
+      if (jwt.exp) {
+        if (current_time > jwt.exp) {
+          return Promise.resolve(false);
+        } else {
+          return Promise.resolve(true);
+        }
+      } else {
+        return Promise.resolve(false);
+      }
+    } else if (!localStorage.jwtToken) {
+      return Promise.resolve(false);
+    } else {
+      return Promise.resolve(true);
+    }
+  }
+}
