@@ -1,5 +1,6 @@
 import React from 'react';
 import NavbarTogglerContainer from './navbar-toggler/navbar-toggler-container';
+import { Link } from 'react-router-dom';
 import './header-component.css';
 
 const HeaderComponent = () => {
@@ -9,7 +10,9 @@ const HeaderComponent = () => {
         <button className="navbar-toggler navbar-toggler-right">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <a className="navbar-brand" href="/">{process.env.REACT_APP_WEBSITE_NAME}</a>
+        <Link to="/" className="navbar-brand">
+          {process.env.REACT_APP_WEBSITE_NAME}
+        </Link>
         <NavbarTogglerContainer />
       </nav>
     </div>
