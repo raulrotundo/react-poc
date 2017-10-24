@@ -1,9 +1,7 @@
-import axios from 'axios';
+import fetch from 'services/fetch-wrapper';
 import setAuthorizationToken from 'utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
 import * as types from 'constants/actionTypes';
-
-axios.defaults.baseURL = process.env.REACT_APP_API_ENPOINT;
 
 export function setCurrentUser(user) {
   return {
@@ -47,7 +45,7 @@ export function logout() {
 export function userLoginRequest(formData) {
   return dispatch => {
     dispatch(startingLoginCall(formData));
-    return axios.post('/api/authenticate', formData).then(res => {
+    return fetch.post('/api/authenticate', formData).then(res => {
       const token = res.data.token;
       localStorage.setItem('jwtToken', token);
       setAuthorizationToken(token);
