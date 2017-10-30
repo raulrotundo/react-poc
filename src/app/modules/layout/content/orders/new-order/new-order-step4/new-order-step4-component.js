@@ -4,7 +4,7 @@ const NewOrderStep4Component = (props) => {
   const { activeStep } = props;
   return (
     <div className="card">
-      <div className="card-header">Title Step {activeStep}</div>
+      <div className="card-header">Step {activeStep} - Checkout</div>
       <div className="card-block">
         Step {activeStep} Content
         </div>
