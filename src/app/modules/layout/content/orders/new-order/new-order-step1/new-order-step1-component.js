@@ -1,13 +1,26 @@
 import React from 'react';
+import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 
 const NewOrderStep1Component = (props) => {
-  const { activeStep } = props;
+  const {
+    activeStep,
+    handleSearch,
+    renderMenuItemChildren,
+    inputTypeahead
+  } = props;
+
   return (
     <div className="card">
       <div className="card-header">Step {activeStep} - Billing Information</div>
       <div className="card-block">
         <div className="form-group">
-          Typeahead component
+          <AsyncTypeahead
+            {...inputTypeahead}
+            labelKey="searchCustomer"
+            onSearch={handleSearch}
+            placeholder="Search for a Customer..."
+            renderMenuItemChildren={renderMenuItemChildren}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="street">Street:</label>
