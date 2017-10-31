@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import NewOrderStep1Component from './new-order-step1-component';
-import { setNewOrderStep } from 'redux/actions/new-order';
+import { setNewOrderStep, handleTypeaheadCustomerSearch } from 'redux/actions/new-order';
 
 class NewOrderStep1Container extends Component {
 
@@ -10,7 +10,7 @@ class NewOrderStep1Container extends Component {
     super(props);
     this.getNewOrderStep = this.getNewOrderStep.bind(this);
     this.renderMenuItemChildren = this.renderMenuItemChildren.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
+    this.handleTypeaheadCustomerSearch = this.handleTypeaheadCustomerSearch.bind(this);
   }
 
   getNewOrderStep(stepSelected) {
@@ -19,24 +19,23 @@ class NewOrderStep1Container extends Component {
 
   renderMenuItemChildren(option, props, index) {
     return (
-      <div key={option.id}>
-        <input type="text" name="customer" value={option.name} />
+      <div key={option._id}>
         <span>{option.name}</span>
       </div>
     );
   }
 
-  handleSearch(query) {
+  handleTypeaheadCustomerSearch(query) {
     if (!query) return;
 
-    this.props.handleSearch(query);
+    this.props.handleTypeaheadCustomerSearch(query);
   }
 
   render() {
     return <NewOrderStep1Component
       activeStep={this.props.form.orderStep}
       getNewOrderStep={this.getNewOrderStep}
-      handleSearch={this.handleSearch}
+      handleTypeaheadCustomerSearch={this.handleTypeaheadCustomerSearch}
       renderMenuItemChildren={this.renderMenuItemChildren}
       inputTypeahead={this.props.form.step1.inputTypeahead}
     />;
@@ -46,8 +45,7 @@ class NewOrderStep1Container extends Component {
 NewOrderStep1Container.propTypes = {
   form: PropTypes.object.isRequired,
   getNewOrderStep: PropTypes.func.isRequired,
-  handleSearch: PropTypes.func.isRequired,
-  renderMenuItemChildren: PropTypes.func.isRequired
+  handleTypeaheadCustomerSearch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -57,8 +55,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getNewOrderStep: (step) => { dispatch(setNewOrderStep(step)) },
-    renderMenuItemChildren: (option, props, index) => { console.log('renderMenuItemChildren') },
-    handleSearch: (query) => { console.log('dispatch handleSearch action', query) }
+    handleTypeaheadCustomerSearch: (query) => { dispatch(handleTypeaheadCustomerSearch(query)) }
   }
 };
 
