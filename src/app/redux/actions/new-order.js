@@ -15,12 +15,19 @@ export function setTypeaheadCustomers(customers) {
   }
 }
 
-export function handleTypeaheadCustomerSearch(query) {
+export function customerSearch(query) {
   return dispatch => {
     return fetch.get('/api/customers?q=' + query).then(res => {
       dispatch(setTypeaheadCustomers(res.data.data));
     }).catch((err) => {
       dispatch(setTypeaheadCustomers([]));
     });
+  }
+}
+
+export function handleTypeaheadCustomerInputChange(value) {
+  return {
+    type: types.SET_TYPEAHEAD_CUSTOMERS_INPUT_VALUE,
+    value
   }
 }

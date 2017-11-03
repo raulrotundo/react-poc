@@ -4,9 +4,10 @@ import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 const NewOrderStep1Component = (props) => {
   const {
     activeStep,
-    handleTypeaheadCustomerSearch,
+    customerSearch,
     renderMenuItemChildren,
-    inputTypeahead
+    inputTypeahead,
+    handleCustomerSearchChange
   } = props;
 
   return (
@@ -14,11 +15,12 @@ const NewOrderStep1Component = (props) => {
       <div className="card-header">Step {activeStep} - Billing Information</div>
       <div className="card-block">
         <div className="form-group">
+          <label htmlFor="street">Customer:</label>
           <AsyncTypeahead
             {...inputTypeahead}
             labelKey="name"
-            onSearch={handleTypeaheadCustomerSearch}
-            placeholder="Search for a Customer..."
+            onSearch={customerSearch}
+            onChange={handleCustomerSearchChange}
             renderMenuItemChildren={renderMenuItemChildren}
           />
         </div>

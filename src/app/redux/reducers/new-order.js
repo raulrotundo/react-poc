@@ -7,7 +7,9 @@ const initialState = {
       inputTypeahead: {
         allowNew: false,
         multiple: false,
-        options: []
+        autoFocus: true,
+        options: [],
+        selected: []
       }
     }
   }
@@ -33,6 +35,20 @@ export default (state = initialState, action = {}) => {
             inputTypeahead: {
               ...state.form.step1.inputTypeahead,
               options: action.customers
+            }
+          }
+        }
+      }
+    case types.SET_TYPEAHEAD_CUSTOMERS_INPUT_VALUE:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          step1: {
+            ...state.form.step1,
+            inputTypeahead: {
+              ...state.form.step1.inputTypeahead,
+              selected: [action.value]
             }
           }
         }

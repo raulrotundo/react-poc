@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import NewOrderStep1Component from './new-order-step1-component';
-import { setNewOrderStep, handleTypeaheadCustomerSearch } from 'redux/actions/new-order';
+import { setNewOrderStep, customerSearch, handleTypeaheadCustomerInputChange } from 'redux/actions/new-order';
 
 class NewOrderStep1Container extends Component {
 
@@ -10,7 +10,8 @@ class NewOrderStep1Container extends Component {
     super(props);
     this.getNewOrderStep = this.getNewOrderStep.bind(this);
     this.renderMenuItemChildren = this.renderMenuItemChildren.bind(this);
-    this.handleTypeaheadCustomerSearch = this.handleTypeaheadCustomerSearch.bind(this);
+    this.customerSearch = this.customerSearch.bind(this);
+    this.handleCustomerSearchChange = this.handleCustomerSearchChange.bind(this);
   }
 
   getNewOrderStep(stepSelected) {
@@ -25,19 +26,27 @@ class NewOrderStep1Container extends Component {
     );
   }
 
-  handleTypeaheadCustomerSearch(query) {
+  customerSearch(query) {
     if (!query) return;
+    this.props.customerSearch(query);
+  }
 
-    this.props.handleTypeaheadCustomerSearch(query);
+  handleCustomerSearchChange(value) {
+    if (value.length > 0 && typeof value[0].name !== 'undefined') {
+      this.props.handleTypeaheadCustomerInputChange(value[0].name);
+    } else if (value.length === 0) {
+      this.props.handleTypeaheadCustomerInputChange('');
+    }
   }
 
   render() {
     return <NewOrderStep1Component
       activeStep={this.props.form.orderStep}
       getNewOrderStep={this.getNewOrderStep}
-      handleTypeaheadCustomerSearch={this.handleTypeaheadCustomerSearch}
+      customerSearch={this.customerSearch}
       renderMenuItemChildren={this.renderMenuItemChildren}
       inputTypeahead={this.props.form.step1.inputTypeahead}
+      handleCustomerSearchChange={this.handleCustomerSearchChange}
     />;
   }
 }
@@ -45,7 +54,7 @@ class NewOrderStep1Container extends Component {
 NewOrderStep1Container.propTypes = {
   form: PropTypes.object.isRequired,
   getNewOrderStep: PropTypes.func.isRequired,
-  handleTypeaheadCustomerSearch: PropTypes.func.isRequired
+  customerSearch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -54,8 +63,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getNewOrderStep: (step) => { dispatch(setNewOrderStep(step)) },
-    handleTypeaheadCustomerSearch: (query) => { dispatch(handleTypeaheadCustomerSearch(query)) }
+    getNewOrderStep: (step) => dispatch(setNewOrderStep(step)),
+    customerSearch: (query) => dispatch(customerSearch(query)),
+    handleTypeaheadCustomerInputChange: (value) => dispatch(handleTypeaheadCustomerInputChange(value))
   }
 };
 
