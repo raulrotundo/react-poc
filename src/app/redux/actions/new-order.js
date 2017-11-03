@@ -15,12 +15,22 @@ export function setTypeaheadCustomers(customers) {
   }
 }
 
+export function typeaheadCustomerInputIsLoading(isLoading) {
+  return {
+    type: types.TYPEAHEAD_CUSTOMERS_INPUT_ISLOADING,
+    isLoading
+  }
+}
+
 export function customerSearch(query) {
   return dispatch => {
+    dispatch(typeaheadCustomerInputIsLoading(true));
     return fetch.get('/api/customers?q=' + query).then(res => {
       dispatch(setTypeaheadCustomers(res.data.data));
+      dispatch(typeaheadCustomerInputIsLoading(false));
     }).catch((err) => {
       dispatch(setTypeaheadCustomers([]));
+      dispatch(typeaheadCustomerInputIsLoading(false));
     });
   }
 }

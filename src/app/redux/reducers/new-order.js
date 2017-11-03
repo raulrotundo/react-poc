@@ -6,6 +6,7 @@ const initialState = {
     step1: {
       inputTypeahead: {
         allowNew: false,
+        isLoading: false,
         multiple: false,
         autoFocus: true,
         options: [],
@@ -49,6 +50,20 @@ export default (state = initialState, action = {}) => {
             inputTypeahead: {
               ...state.form.step1.inputTypeahead,
               selected: [action.value]
+            }
+          }
+        }
+      }
+    case types.TYPEAHEAD_CUSTOMERS_INPUT_ISLOADING:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          step1: {
+            ...state.form.step1,
+            inputTypeahead: {
+              ...state.form.step1.inputTypeahead,
+              isLoading: action.isLoading
             }
           }
         }
