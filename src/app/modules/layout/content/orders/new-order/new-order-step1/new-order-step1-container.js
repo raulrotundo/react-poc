@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import NewOrderStep1Component from './new-order-step1-component';
-import { setNewOrderStep, customerSearch, handleTypeaheadCustomerInputChange } from 'redux/actions/new-order';
+import {
+  setNewOrderStep,
+  customerSearch,
+  handleTypeaheadCustomerInputChange,
+  isBillingAddressInputsVisible
+} from 'redux/actions/new-order';
 
 class NewOrderStep1Container extends Component {
 
@@ -12,6 +17,7 @@ class NewOrderStep1Container extends Component {
     this.renderMenuItemChildren = this.renderMenuItemChildren.bind(this);
     this.customerSearch = this.customerSearch.bind(this);
     this.handleCustomerSearchChange = this.handleCustomerSearchChange.bind(this);
+    this.toggleDeliveryAddressChange = this.toggleDeliveryAddressChange.bind(this);
   }
 
   getNewOrderStep(stepSelected) {
@@ -39,14 +45,19 @@ class NewOrderStep1Container extends Component {
     }
   }
 
+  toggleDeliveryAddressChange() {
+    this.props.isBillingAddressInputsVisible(!this.props.form.step1.isBillingAddressInputsVisible)
+  }
+
   render() {
     return <NewOrderStep1Component
-      activeStep={this.props.form.orderStep}
+      form={this.props.form}
       getNewOrderStep={this.getNewOrderStep}
       customerSearch={this.customerSearch}
       renderMenuItemChildren={this.renderMenuItemChildren}
       inputTypeahead={this.props.form.step1.inputTypeahead}
       handleCustomerSearchChange={this.handleCustomerSearchChange}
+      toggleDeliveryAddressChange={this.toggleDeliveryAddressChange}
     />;
   }
 }
@@ -65,7 +76,8 @@ const mapDispatchToProps = dispatch => {
   return {
     getNewOrderStep: (step) => dispatch(setNewOrderStep(step)),
     customerSearch: (query) => dispatch(customerSearch(query)),
-    handleTypeaheadCustomerInputChange: (value) => dispatch(handleTypeaheadCustomerInputChange(value))
+    handleTypeaheadCustomerInputChange: (value) => dispatch(handleTypeaheadCustomerInputChange(value)),
+    isBillingAddressInputsVisible: (isVisible) => dispatch(isBillingAddressInputsVisible(isVisible))
   }
 };
 

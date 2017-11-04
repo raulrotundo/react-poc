@@ -10,7 +10,8 @@ const initialState = {
         autoFocus: true,
         options: [],
         selected: []
-      }
+      },
+      isBillingAddressInputsVisible: false
     }
   }
 };
@@ -50,6 +51,17 @@ export default (state = initialState, action = {}) => {
               ...state.form.step1.inputTypeahead,
               selected: [action.value]
             }
+          }
+        }
+      }
+    case types.SET_BILLING_ADDRESS_INPUTS_VISIBILITY:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          step1: {
+            ...state.form.step1,
+            isBillingAddressInputsVisible: action.isVisible
           }
         }
       }

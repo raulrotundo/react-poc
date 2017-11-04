@@ -31,3 +31,10 @@ export function handleTypeaheadCustomerInputChange(value) {
     value
   }
 }
+
+export function isBillingAddressInputsVisible(isVisible) {
+  return {
+    type: types.SET_BILLING_ADDRESS_INPUTS_VISIBILITY,
+    isVisible
+  }
+}
