@@ -12,6 +12,10 @@ const initialState = {
         selected: []
       },
       isBillingAddressInputsVisible: false
+    },
+    step2: {
+      products: [],
+      isProductListLoading: false
     }
   }
 };
@@ -62,6 +66,28 @@ export default (state = initialState, action = {}) => {
           step1: {
             ...state.form.step1,
             isBillingAddressInputsVisible: action.isVisible
+          }
+        }
+      }
+    case types.SET_PRODUCTS_LIST:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          step2: {
+            ...state.form.step2,
+            products: action.products
+          }
+        }
+      }
+    case types.IS_PRODUCT_LIST_LOADING:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          step2: {
+            ...state.form.step2,
+            isProductListLoading: action.isProductListLoading
           }
         }
       }

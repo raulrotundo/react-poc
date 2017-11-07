@@ -15,6 +15,20 @@ export function setTypeaheadCustomers(customers) {
   }
 }
 
+export function setProductList(products) {
+  return {
+    type: types.SET_PRODUCTS_LIST,
+    products
+  }
+}
+
+export function isProductListLoading(isProductListLoading) {
+  return {
+    type: types.IS_PRODUCT_LIST_LOADING,
+    isProductListLoading
+  }
+}
+
 export function customerSearch(query) {
   return dispatch => {
     return fetch.get('/api/customers?q=' + query).then(res => {
@@ -36,5 +50,18 @@ export function isBillingAddressInputsVisible(isVisible) {
   return {
     type: types.SET_BILLING_ADDRESS_INPUTS_VISIBILITY,
     isVisible
+  }
+}
+
+export function getProducts() {
+  return dispatch => {
+    dispatch(isProductListLoading(true));
+    return fetch.get('/api/products').then(res => {
+      dispatch(isProductListLoading(false));
+      dispatch(setProductList(res.data.data));
+    }).catch((err) => {
+      dispatch(isProductListLoading(false));
+      dispatch(setProductList([]));
+    });
   }
 }
