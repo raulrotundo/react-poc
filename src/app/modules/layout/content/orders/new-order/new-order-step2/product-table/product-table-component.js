@@ -2,7 +2,10 @@ import React from 'react';
 import ProductTableRowComponent from './product-table-row-component';
 
 const ProductTableComponent = (props) => {
-  const { products } = props;
+  const {
+    products,
+    isProductListLoading
+  } = props;
   const rows = [];
 
   products.forEach((product) => {
@@ -25,7 +28,7 @@ const ProductTableComponent = (props) => {
           <th>Qty</th>
         </tr>
       </thead>
-      <tbody>{rows}</tbody>
+      <tbody>{isProductListLoading ? <tr><td colSpan="5" className="text-center">Loading...</td></tr> : rows}</tbody>
     </table>
   );
 }

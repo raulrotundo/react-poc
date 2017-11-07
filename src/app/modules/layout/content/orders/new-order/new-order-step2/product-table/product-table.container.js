@@ -18,6 +18,7 @@ class ProductTableContainer extends Component {
         <ProductSearchBarComponent />
         <ProductTableComponent
           products={this.props.products}
+          isProductListLoading={this.props.isProductListLoading}
         />
         <ProductTablePaginationComponent />
       </div>
