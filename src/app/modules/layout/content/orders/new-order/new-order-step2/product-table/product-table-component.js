@@ -21,14 +21,13 @@ const ProductTableComponent = (props) => {
     <table className="table table-sm table-bordered">
       <thead>
         <tr>
-          <th>Image</th>
           <th>Name</th>
           <th>Price</th>
           <th></th>
           <th>Qty</th>
         </tr>
       </thead>
-      <tbody>{isProductListLoading ? <tr><td colSpan="5" className="text-center">Loading...</td></tr> : rows}</tbody>
+      <tbody>{isProductListLoading ? <tr><td colSpan="4" className="text-center">Loading...</td></tr> : rows}</tbody>
     </table>
   );
 }
