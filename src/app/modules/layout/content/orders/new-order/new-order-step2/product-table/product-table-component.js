@@ -24,10 +24,9 @@ const ProductTableComponent = (props) => {
           <th>Name</th>
           <th>Price</th>
           <th></th>
-          <th>Qty</th>
         </tr>
       </thead>
-      <tbody>{isProductListLoading ? <tr><td colSpan="4" className="text-center">Loading...</td></tr> : rows}</tbody>
+      <tbody>{isProductListLoading ? <tr><td colSpan="3" className="text-center">Loading...</td></tr> : rows}</tbody>
     </table>
   );
 }

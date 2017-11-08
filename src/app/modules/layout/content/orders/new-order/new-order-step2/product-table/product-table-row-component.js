@@ -7,8 +7,12 @@ const ProductTableRowComponent = (props) => {
     <tr>
       <td><Link to={product.img} target="_blank">{product.name}</Link></td>
       <td>{product.price}</td>
-      <td><input type="checkbox" /></td>
-      <td><input type="number" min="0" /></td>
+      <td>
+        <div class="btn-group">
+          <button className="btn btn-success btn-circle"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <button className="btn btn-danger btn-circle"><i class="fa fa-minus" aria-hidden="true"></i></button>
+        </div>
+      </td>
     </tr>
   );
 }
