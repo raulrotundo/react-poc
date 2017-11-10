@@ -15,7 +15,10 @@ const initialState = {
     },
     step2: {
       products: [],
-      isProductListLoading: false
+      isProductListLoading: false,
+      cart: {
+        addedIds: []
+      }
     }
   }
 };
@@ -88,6 +91,28 @@ export default (state = initialState, action = {}) => {
           step2: {
             ...state.form.step2,
             isProductListLoading: action.isProductListLoading
+          }
+        }
+      }
+    case types.ADD_TO_CART:
+      // Avoid add duplicate productId to the cart
+      if (state.form.step2.cart.addedIds.indexOf(action.productId) !== -1) {
+        return state;
+      }
+
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          step2: {
+            ...state.form.step2,
+            cart: {
+              ...state.form.step2.cart,
+              addedIds: [
+                ...state.form.step2.cart.addedIds,
+                action.productId
+              ]
+            }
           }
         }
       }

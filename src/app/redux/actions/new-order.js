@@ -65,3 +65,10 @@ export function getProducts() {
     });
   }
 }
+
+export function addToCart(productId) {
+  return {
+    type: types.ADD_TO_CART,
+    productId
+  }
+}

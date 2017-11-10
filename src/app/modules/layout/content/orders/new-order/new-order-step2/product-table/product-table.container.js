@@ -5,6 +5,7 @@ import { getProducts } from 'redux/actions/new-order';
 import ProductSearchBarComponent from './product-table-search-bar-component';
 import ProductTableComponent from './product-table-component';
 import ProductTablePaginationComponent from './product-table-pagination-component';
+import { addToCart } from 'redux/actions/new-order';
 
 class ProductTableContainer extends Component {
 
@@ -19,6 +20,7 @@ class ProductTableContainer extends Component {
         <ProductTableComponent
           products={this.props.products}
           isProductListLoading={this.props.isProductListLoading}
+          addToCart={this.props.addToCart}
         />
         <ProductTablePaginationComponent />
       </div>
@@ -36,7 +38,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getProducts: () => { dispatch(getProducts()) }
+    getProducts: () => { dispatch(getProducts()) },
+    addToCart: (productId) => { dispatch(addToCart(productId)) }
   }
 };
 

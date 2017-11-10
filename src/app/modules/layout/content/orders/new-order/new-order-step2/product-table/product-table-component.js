@@ -4,7 +4,8 @@ import ProductTableRowComponent from './product-table-row-component';
 const ProductTableComponent = (props) => {
   const {
     products,
-    isProductListLoading
+    isProductListLoading,
+    addToCart
   } = props;
   const rows = [];
 
@@ -13,6 +14,7 @@ const ProductTableComponent = (props) => {
       <ProductTableRowComponent
         product={product}
         key={product._id}
+        addToCart={addToCart}
       />
     );
   });

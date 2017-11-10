@@ -2,14 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProductTableRowComponent = (props) => {
-  const { product } = props;
+  const {
+    product,
+    addToCart
+  } = props;
+
   return (
     <tr>
       <td><Link to={product.img} target="_blank">{product.name}</Link></td>
       <td>{product.price}</td>
       <td>
         <div className="btn-group">
-          <button className="btn btn-success btn-circle">
+          <button className="btn btn-success btn-circle" onClick={() => addToCart(product._id)}>
             <i className="fa fa-plus" aria-hidden="true"></i>
           </button>
           <button className="btn btn-danger btn-circle">
