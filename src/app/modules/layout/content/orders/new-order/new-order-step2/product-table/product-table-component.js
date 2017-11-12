@@ -26,9 +26,9 @@ const ProductTableComponent = (props) => {
       <table className="table table-sm table-bordered">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th></th>
+            <th className="text-center">Name</th>
+            <th className="text-center">Price</th>
+            <th className="text-center"></th>
           </tr>
         </thead>
         <tbody>{isProductListLoading ? <tr><td colSpan="3" className="text-center">Loading...</td></tr> : rows}</tbody>

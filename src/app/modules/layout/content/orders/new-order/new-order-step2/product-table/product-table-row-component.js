@@ -10,14 +10,11 @@ const ProductTableRowComponent = (props) => {
   return (
     <tr>
       <td><Link to={product.img} target="_blank">{product.name}</Link></td>
-      <td>${product.price}</td>
-      <td>
+      <td className="text-right">${product.price}</td>
+      <td className="text-center">
         <div className="btn-group">
           <button className="btn btn-success btn-circle" onClick={() => addToCart(product._id)}>
             <i className="fa fa-plus" aria-hidden="true"></i>
-          </button>
-          <button className="btn btn-danger btn-circle">
-            <i className="fa fa-minus" aria-hidden="true"></i>
           </button>
         </div>
       </td>
