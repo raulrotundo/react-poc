@@ -31,7 +31,7 @@ const ProductTableItemsOrderedComponent = (props) => {
           <tfoot>
             <tr>
               <td colSpan={3} className="text-right">Total:</td>
-              <td>{cart.total}</td>
+              <td>${cart.total}</td>
             </tr>
           </tfoot>
         </table>

@@ -5,9 +5,9 @@ const ProductTableItemsOrderedRowComponent = (props) => {
   return (
     <tr>
       <td>{item.productDetail.name}</td>
-      <td>{item.productDetail.price}</td>
+      <td>${item.productDetail.price}</td>
       <td>{item.qty}</td>
-      <td>{item.subTotal}</td>
+      <td>${item.subTotal}</td>
     </tr>
   );
 }

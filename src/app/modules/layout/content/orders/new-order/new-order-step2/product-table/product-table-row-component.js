@@ -10,7 +10,7 @@ const ProductTableRowComponent = (props) => {
   return (
     <tr>
       <td><Link to={product.img} target="_blank">{product.name}</Link></td>
-      <td>{product.price}</td>
+      <td>${product.price}</td>
       <td>
         <div className="btn-group">
           <button className="btn btn-success btn-circle" onClick={() => addToCart(product._id)}>
