@@ -5,11 +5,11 @@ const ProductTableItemsOrderedComponent = (props) => {
   const { cart } = props;
   const rows = [];
 
-  for (let item in cart) {
+  for (let item in cart.items) {
     rows.push(
       <ProductTableItemsOrderedRwow
         key={item}
-        item={cart[item]}
+        item={cart.items[item]}
       />
     );
   };
@@ -31,7 +31,7 @@ const ProductTableItemsOrderedComponent = (props) => {
           <tfoot>
             <tr>
               <td colSpan={3} className="text-right">Total:</td>
-              <td>Total Price</td>
+              <td>{cart.total}</td>
             </tr>
           </tfoot>
         </table>

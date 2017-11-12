@@ -33,7 +33,7 @@ const ProductTableComponent = (props) => {
         </thead>
         <tbody>{isProductListLoading ? <tr><td colSpan="3" className="text-center">Loading...</td></tr> : rows}</tbody>
       </table>
-      {Object.keys(cart).length === 0 || <ProductTableItemsOrderedComponent cart={cart} />}      
+      {Object.keys(cart.items).length > 0 && <ProductTableItemsOrderedComponent cart={cart} />}      
     </div>
   );
 }

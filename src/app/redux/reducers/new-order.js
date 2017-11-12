@@ -16,7 +16,10 @@ const initialState = {
     step2: {
       products: [],
       isProductListLoading: false,
-      cart: {}
+      cart: {
+        items: {},
+        total: 0
+      }
     }
   }
 };
@@ -94,7 +97,9 @@ export default (state = initialState, action = {}) => {
       }
     case types.ADD_TO_CART:
       const productDetail = state.form.step2.products.find(product => { return product._id === action.productId; });
-      const qty = (typeof(state.form.step2.cart[action.productId]) !== 'undefined' ? state.form.step2.cart[action.productId]['qty'] + 1 : 0);
+      const qty = (typeof (state.form.step2.cart.items[action.productId]) !== 'undefined' ? state.form.step2.cart.items[action.productId]['qty'] + 1 : 1);
+      const subTotal = qty * Number(productDetail.price);
+      const total = state.form.step2.cart.total + Number(productDetail.price);
 
       return {
         ...state,
@@ -104,12 +109,16 @@ export default (state = initialState, action = {}) => {
             ...state.form.step2,
             cart: {
               ...state.form.step2.cart,
-              [action.productId]: {
-                ...state.form.step2.cart[action.productId],
-                qty: (qty + 1),
-                subTotal: (qty + 1) * productDetail.price,
-                productDetail: productDetail
-              }
+              items: {
+                ...state.form.step2.cart.items,
+                [action.productId]: {
+                  ...state.form.step2.cart[action.productId],
+                  qty: qty,
+                  subTotal: subTotal,
+                  productDetail: productDetail
+                }
+              },
+              total: total
             }
           }
         }
