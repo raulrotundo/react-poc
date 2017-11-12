@@ -2,7 +2,7 @@ import React from 'react';
 import ProductTableItemsOrderedRwow from './product-table-items-ordered-row-component';
 
 const ProductTableItemsOrderedComponent = (props) => {
-  const { cart } = props;
+  const { cart, removeToCart } = props;
   const rows = [];
 
   for (let item in cart.items) {
@@ -10,6 +10,7 @@ const ProductTableItemsOrderedComponent = (props) => {
       <ProductTableItemsOrderedRwow
         key={item}
         item={cart.items[item]}
+        removeToCart={removeToCart}
       />
     );
   };

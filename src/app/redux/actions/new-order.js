@@ -72,3 +72,10 @@ export function addToCart(productId) {
     productId
   }
 }
+
+export function removeToCart(productId) {
+  return {
+    type: types.REMOVE_TO_CART,
+    productId
+  }
+}

@@ -123,6 +123,27 @@ export default (state = initialState, action = {}) => {
           }
         }
       }
+    case types.REMOVE_TO_CART:
+      const item = state.form.step2.cart.items[action.productId];
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          step2: {
+            ...state.form.step2,
+            cart: {
+              ...state.form.step2.cart,
+              items: Object.keys(state.form.step2.cart.items).reduce((result, key) => {
+                if (key !== action.productId) {
+                  result[key] = state.form.step2.cart.items[key];
+                }
+                return result;
+              }, {}),
+              total: state.form.step2.cart.total - item.subTotal
+            }
+          }
+        }
+      }
     default: return state;
   }
 }
