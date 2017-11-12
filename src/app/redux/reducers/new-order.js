@@ -94,6 +94,7 @@ export default (state = initialState, action = {}) => {
       }
     case types.ADD_TO_CART:
       const productDetail = state.form.step2.products.find(product => { return product._id === action.productId; });
+      const qty = (typeof(state.form.step2.cart[action.productId]) !== 'undefined' ? state.form.step2.cart[action.productId]['qty'] + 1 : 0);
 
       return {
         ...state,
@@ -105,7 +106,8 @@ export default (state = initialState, action = {}) => {
               ...state.form.step2.cart,
               [action.productId]: {
                 ...state.form.step2.cart[action.productId],
-                qty: ((typeof(state.form.step2.cart[action.productId]) !== 'undefined' ? state.form.step2.cart[action.productId]['qty'] : 0) + 1),
+                qty: (qty + 1),
+                subTotal: (qty + 1) * productDetail.price,
                 productDetail: productDetail
               }
             }
