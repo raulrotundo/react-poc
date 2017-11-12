@@ -21,6 +21,7 @@ class ProductTableContainer extends Component {
           products={this.props.products}
           isProductListLoading={this.props.isProductListLoading}
           addToCart={this.props.addToCart}
+          cart={this.props.cart}
         />
         <ProductTablePaginationComponent />
       </div>
