@@ -93,6 +93,8 @@ export default (state = initialState, action = {}) => {
         }
       }
     case types.ADD_TO_CART:
+      const productDetail = state.form.step2.products.find(product => { return product._id === action.productId; });
+
       return {
         ...state,
         form: {
@@ -101,7 +103,11 @@ export default (state = initialState, action = {}) => {
             ...state.form.step2,
             cart: {
               ...state.form.step2.cart,
-              [action.productId]: (state.form.step2.cart[action.productId] || 0) + 1
+              [action.productId]: {
+                ...state.form.step2.cart[action.productId],
+                qty: ((typeof(state.form.step2.cart[action.productId]) !== 'undefined' ? state.form.step2.cart[action.productId]['qty'] : 0) + 1),
+                productDetail: productDetail
+              }
             }
           }
         }
