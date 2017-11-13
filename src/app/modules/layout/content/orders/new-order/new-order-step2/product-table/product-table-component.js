@@ -23,7 +23,7 @@ const ProductTableComponent = (props) => {
   });
 
   return (
-    <div>
+    <div className="col-12">
       <table className="table table-sm table-bordered">
         <thead>
           <tr>

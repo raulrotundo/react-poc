@@ -15,16 +15,39 @@ class ProductTableContainer extends Component {
 
   render() {
     return (
-      <div>
-        <ProductSearchBarComponent />
-        <ProductTableComponent
-          products={this.props.products}
-          isProductListLoading={this.props.isProductListLoading}
-          addToCart={this.props.addToCart}
-          removeToCart={this.props.removeToCart}
-          cart={this.props.cart}
-        />
-        <ProductTablePaginationComponent />
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
+            Show &nbsp;
+            <select name="showEntries">
+              <option>5</option>
+              <option>10</option>
+              <option>25</option>
+              <option>50</option>
+            </select>
+            &nbsp; Entries
+          </div>
+          <div className="col-6">
+            <ProductSearchBarComponent />
+          </div>
+        </div>
+        <div className="row">
+          <ProductTableComponent
+            products={this.props.products}
+            isProductListLoading={this.props.isProductListLoading}
+            addToCart={this.props.addToCart}
+            removeToCart={this.props.removeToCart}
+            cart={this.props.cart}
+          />
+        </div>
+        <div className="row">
+          <div className="col-6">
+            Showing 1 to 10 of 57 entries
+          </div>
+          <div className="col-6">
+            <ProductTablePaginationComponent />
+          </div>
+        </div>
       </div>
     );
   }
