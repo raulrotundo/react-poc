@@ -22,6 +22,20 @@ export function typeaheadCustomerInputIsLoading(isLoading) {
   }
 }
 
+export function setProductList(products) {
+  return {
+    type: types.SET_PRODUCTS_LIST,
+    products
+  }
+}
+
+export function isProductListLoading(isProductListLoading) {
+  return {
+    type: types.IS_PRODUCT_LIST_LOADING,
+    isProductListLoading
+  }
+}
+
 export function customerSearch(query) {
   return dispatch => {
     dispatch(typeaheadCustomerInputIsLoading(true));
@@ -39,5 +53,39 @@ export function handleTypeaheadCustomerInputChange(value) {
   return {
     type: types.SET_TYPEAHEAD_CUSTOMERS_INPUT_VALUE,
     value
+  }
+}
+
+export function isBillingAddressInputsVisible(isVisible) {
+  return {
+    type: types.SET_BILLING_ADDRESS_INPUTS_VISIBILITY,
+    isVisible
+  }
+}
+
+export function getProducts() {
+  return dispatch => {
+    dispatch(isProductListLoading(true));
+    return fetch.get('/api/products').then(res => {
+      dispatch(isProductListLoading(false));
+      dispatch(setProductList(res.data.data));
+    }).catch((err) => {
+      dispatch(isProductListLoading(false));
+      dispatch(setProductList([]));
+    });
+  }
+}
+
+export function addToCart(productId) {
+  return {
+    type: types.ADD_TO_CART,
+    productId
+  }
+}
+
+export function removeToCart(productId) {
+  return {
+    type: types.REMOVE_TO_CART,
+    productId
   }
 }

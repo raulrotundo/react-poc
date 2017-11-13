@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductTableContainer from './product-table/product-table.container';
 
 const NewOrderStep2Component = (props) => {
   const { activeStep } = props;
@@ -6,8 +7,8 @@ const NewOrderStep2Component = (props) => {
     <div className="card">
       <div className="card-header">Step {activeStep} - Add to Cart</div>
       <div className="card-block">
-        Step {activeStep} Content
-        </div>
+        <ProductTableContainer />
+      </div>
     </div>
   );
 }
