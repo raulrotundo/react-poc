@@ -5,6 +5,7 @@ import { getProducts } from 'redux/actions/new-order';
 import ProductSearchBarComponent from './product-table-search-bar-component';
 import ProductTableComponent from './product-table-component';
 import ProductTablePaginationComponent from './product-table-pagination-component';
+import ProductTableItemsOrderedComponent from './product-table-items-ordered-component';
 import { addToCart, removeToCart } from 'redux/actions/new-order';
 
 class ProductTableContainer extends Component {
@@ -41,7 +42,6 @@ class ProductTableContainer extends Component {
               products={this.props.products}
               isProductListLoading={this.props.isProductListLoading}
               addToCart={this.props.addToCart}
-              removeToCart={this.props.removeToCart}
               cart={this.props.cart}
             />
           </div>
@@ -54,6 +54,11 @@ class ProductTableContainer extends Component {
             <div className="pull-right">
               <ProductTablePaginationComponent />
             </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12">
+            {Object.keys(this.props.cart.items).length > 0 && <ProductTableItemsOrderedComponent cart={this.props.cart} removeToCart={this.props.removeToCart} />}
           </div>
         </div>
       </div>
