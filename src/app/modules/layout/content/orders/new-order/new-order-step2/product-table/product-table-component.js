@@ -23,7 +23,7 @@ const ProductTableComponent = (props) => {
   });
 
   return (
-    <div className="col-12">
+    <div>
       <table className="table table-sm table-bordered">
         <thead>
           <tr>
@@ -34,7 +34,7 @@ const ProductTableComponent = (props) => {
         </thead>
         <tbody>{isProductListLoading ? <tr><td colSpan="3" className="text-center">Loading...</td></tr> : rows}</tbody>
       </table>
-      {Object.keys(cart.items).length > 0 && <ProductTableItemsOrderedComponent cart={cart} removeToCart={removeToCart} />}      
+      {Object.keys(cart.items).length > 0 && <ProductTableItemsOrderedComponent cart={cart} removeToCart={removeToCart} />}
     </div>
   );
 }

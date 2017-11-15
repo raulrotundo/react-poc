@@ -28,24 +28,32 @@ class ProductTableContainer extends Component {
             &nbsp; Entries
           </div>
           <div className="col-6">
-            <ProductSearchBarComponent />
+            <div className="col-12">
+              <div className="pull-right">
+                <ProductSearchBarComponent />
+              </div>
+            </div>
           </div>
         </div>
         <div className="row">
-          <ProductTableComponent
-            products={this.props.products}
-            isProductListLoading={this.props.isProductListLoading}
-            addToCart={this.props.addToCart}
-            removeToCart={this.props.removeToCart}
-            cart={this.props.cart}
-          />
+          <div className="col-12">
+            <ProductTableComponent
+              products={this.props.products}
+              isProductListLoading={this.props.isProductListLoading}
+              addToCart={this.props.addToCart}
+              removeToCart={this.props.removeToCart}
+              cart={this.props.cart}
+            />
+          </div>
         </div>
         <div className="row">
           <div className="col-6">
             Showing 1 to 10 of 57 entries
           </div>
           <div className="col-6">
-            <ProductTablePaginationComponent />
+            <div className="pull-right">
+              <ProductTablePaginationComponent />
+            </div>
           </div>
         </div>
       </div>
