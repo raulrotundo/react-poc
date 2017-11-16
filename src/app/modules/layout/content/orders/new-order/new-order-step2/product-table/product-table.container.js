@@ -48,11 +48,14 @@ class ProductTableContainer extends Component {
         </div>
         <div className="row">
           <div className="col-6">
-            <ProductTableShowEntries
-              pageNumber={this.props.page}
-              totalPages={this.props.total_pages}
-              totalRows={this.props.total_rows}
-            />
+            {
+              this.props.total_rows > 0 &&
+              <ProductTableShowEntries
+                pageNumber={this.props.page}
+                totalPages={this.props.total_pages}
+                totalRows={this.props.total_rows}
+              />
+            }
           </div>
           <div className="col-6">
             <div className="pull-right">
@@ -62,7 +65,13 @@ class ProductTableContainer extends Component {
         </div>
         <div className="row">
           <div className="col-12">
-            {Object.keys(this.props.cart.items).length > 0 && <ProductTableItemsOrderedComponent cart={this.props.cart} removeToCart={this.props.removeToCart} />}
+            {
+              Object.keys(this.props.cart.items).length > 0 &&
+              <ProductTableItemsOrderedComponent
+                cart={this.props.cart}
+                removeToCart={this.props.removeToCart}
+              />
+            }
           </div>
         </div>
       </div>
