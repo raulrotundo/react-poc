@@ -17,6 +17,7 @@ const initialState = {
     step2: {
       products: [],
       items_per_page: 0,
+      page: 0,
       total_pages: 0,
       total_rows: 0,
       isProductListLoading: false,
@@ -100,6 +101,7 @@ export default (state = initialState, action = {}) => {
             ...state.form.step2,
             products: action.data.data,
             items_per_page: action.data.items_per_page,
+            page: action.data.page,
             total_pages: action.data.total_pages,
             total_rows: action.data.total_rows,
           }

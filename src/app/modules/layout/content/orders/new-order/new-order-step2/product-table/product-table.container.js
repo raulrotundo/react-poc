@@ -49,7 +49,7 @@ class ProductTableContainer extends Component {
         <div className="row">
           <div className="col-6">
             <ProductTableShowEntries
-              pageNumber={1}
+              pageNumber={this.props.page}
               totalPages={this.props.total_pages}
               totalRows={this.props.total_rows}
             />
