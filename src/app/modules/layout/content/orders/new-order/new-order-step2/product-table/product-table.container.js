@@ -6,6 +6,7 @@ import ProductSearchBarComponent from './product-table-search-bar-component';
 import ProductTableComponent from './product-table-component';
 import ProductTablePaginationComponent from './product-table-pagination-component';
 import ProductTableItemsOrderedComponent from './product-table-items-ordered-component';
+import ProductTableShowEntries from './product-table-show-entries-component';
 import { addToCart, removeToCart } from 'redux/actions/new-order';
 
 class ProductTableContainer extends Component {
@@ -47,7 +48,11 @@ class ProductTableContainer extends Component {
         </div>
         <div className="row">
           <div className="col-6">
-            Showing 1 to 10 of 57 entries
+            <ProductTableShowEntries
+              pageNumber={1}
+              totalPages={this.props.total_pages}
+              totalRows={this.props.total_rows}
+            />
           </div>
           <div className="col-6">
             <div className="pull-right">
