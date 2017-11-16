@@ -21,7 +21,6 @@ class ProductTableContainer extends Component {
           <div className="col-6">
             Show &nbsp;
             <select name="showEntries">
-              <option>5</option>
               <option>10</option>
               <option>25</option>
               <option>50</option>
