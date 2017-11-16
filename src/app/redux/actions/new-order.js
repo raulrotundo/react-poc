@@ -22,10 +22,10 @@ export function typeaheadCustomerInputIsLoading(isLoading) {
   }
 }
 
-export function setProductList(products) {
+export function setProductList(data) {
   return {
     type: types.SET_PRODUCTS_LIST,
-    products
+    data
   }
 }
 
@@ -68,7 +68,7 @@ export function getProducts() {
     dispatch(isProductListLoading(true));
     return fetch.get('/api/products').then(res => {
       dispatch(isProductListLoading(false));
-      dispatch(setProductList(res.data.data));
+      dispatch(setProductList(res.data));
     }).catch((err) => {
       dispatch(isProductListLoading(false));
       dispatch(setProductList([]));
