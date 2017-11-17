@@ -21,9 +21,12 @@ class ProductTableContainer extends Component {
         <div className="row">
           <div className="col-6">
             Show &nbsp;
-            <select name="showEntries">
+            <select name="showEntries" onChange={event => this.props.getProducts({ items_per_page: event.target.value })}>
+              <option>5</option>
               <option>10</option>
-              <option>25</option>
+              <option>20</option>
+              <option>30</option>
+              <option>40</option>
               <option>50</option>
             </select>
             &nbsp; Entries
@@ -89,7 +92,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getProducts: () => { dispatch(getProducts()) },
+    getProducts: (query) => { dispatch(getProducts(query)) },
     addToCart: (productId) => { dispatch(addToCart(productId)) },
     removeToCart: (productId) => { dispatch(removeToCart(productId)) }
   }

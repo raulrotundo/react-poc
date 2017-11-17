@@ -63,10 +63,16 @@ export function isBillingAddressInputsVisible(isVisible) {
   }
 }
 
-export function getProducts() {
+export function getProducts(filters = {}) {
+  const urlParams = [];
+
+  for (var i in filters) {
+    urlParams.push(encodeURI(i) + "=" + encodeURI(filters[i]));
+  }
+
   return dispatch => {
     dispatch(isProductListLoading(true));
-    return fetch.get('/api/products').then(res => {
+    return fetch.get('/api/products' + (urlParams.length > 0 ? '?' + urlParams : '')).then(res => {
       dispatch(isProductListLoading(false));
       dispatch(setProductList(res.data));
     }).catch((err) => {
