@@ -52,7 +52,7 @@ class ProductTableContainer extends Component {
         <div className="row">
           <div className="col-6">
             {
-              this.props.total_rows > 0 &&
+              !this.props.isProductListLoading && this.props.total_rows > 0 &&
               <ProductTableShowEntries
                 pageNumber={this.props.page}
                 totalPages={this.props.total_pages}
