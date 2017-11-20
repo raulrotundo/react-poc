@@ -20,25 +20,27 @@ class FetchWrapper {
     switch (error.response.status) {
       case 500:
         // Verify if there is an authentication error to redirect to login page
-        if (typeof(error.response.data.error) !== 'undefined' && error.response.data.error.auth === false) {
+        if (typeof (error.response.data.error) !== 'undefined' && error.response.data.error.auth === false) {
           this.redirectTo(document, '/login');
         }
-      break;
+        break;
       default: // useless
     }
     return Promise.reject(error)
   }
 
-  redirectTo (document, path) {
+  redirectTo(document, path) {
     document.location = path;
   }
 
-  get(url) {
-    return this.fetch.request({
+  get(url, options = {}) {
+    const initial = {
       method: 'get',
       url: url,
       responseType: 'json'
-    }).then((response) => {
+    }
+    const config = Object.assign({}, initial, options);
+    return this.fetch.request(config).then((response) => {
       return Promise.resolve(response);
     }).catch((err) => {
       return Promise.reject(err);
