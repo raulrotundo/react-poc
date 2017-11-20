@@ -20,6 +20,14 @@ const initialState = {
         q: '',
         items_per_page: '5'
       },
+      itemsPerPageArrayOptions: [
+        { value: '5', label: '5' },
+        { value: '10', label: '10' },
+        { value: '20', label: '20' },
+        { value: '30', label: '30' },
+        { value: '40', label: '40' },
+        { value: '50', label: '50' },
+      ],
       items_per_page: 0,
       page: 0,
       total_pages: 0,
