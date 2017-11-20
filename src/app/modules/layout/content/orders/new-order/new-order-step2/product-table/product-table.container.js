@@ -11,8 +11,18 @@ import { addToCart, removeToCart } from 'redux/actions/new-order';
 
 class ProductTableContainer extends Component {
 
+  constructor(props) {
+    super(props);
+    this.getProducts = this.getProducts.bind(this);
+  }
+
   componentDidMount() {
-    this.props.getProducts();
+    this.getProducts();
+  }
+
+  getProducts(filters) {
+    const filtersMerged = Object.assign({}, this.props.filters, filters);
+    this.props.getProducts(filtersMerged);
   }
 
   render() {
@@ -21,7 +31,7 @@ class ProductTableContainer extends Component {
         <div className="row">
           <div className="col-6">
             Show &nbsp;
-            <select name="showEntries" onChange={event => this.props.getProducts({ items_per_page: event.target.value })}>
+            <select name="showEntries" onChange={event => this.getProducts({ items_per_page: event.target.value })}>
               <option>5</option>
               <option>10</option>
               <option>20</option>
@@ -34,7 +44,7 @@ class ProductTableContainer extends Component {
           <div className="col-6">
             <div className="col-12">
               <div className="pull-right">
-                <ProductSearchBarComponent />
+                <ProductSearchBarComponent getProducts={this.getProducts} />
               </div>
             </div>
           </div>

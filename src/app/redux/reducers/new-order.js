@@ -16,6 +16,10 @@ const initialState = {
     },
     step2: {
       products: [],
+      filters: {
+        q: '',
+        items_per_page: '5'
+      },
       items_per_page: 0,
       page: 0,
       total_pages: 0,
@@ -164,6 +168,17 @@ export default (state = initialState, action = {}) => {
               }, {}),
               total: state.form.step2.cart.total - item.subTotal
             }
+          }
+        }
+      }
+    case types.SAVE_PRODUCT_TABLE_FILTERS:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          step2: {
+            ...state.form.step2,
+            filters: action.filters
           }
         }
       }
