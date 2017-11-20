@@ -7,6 +7,7 @@ import ProductTableComponent from './product-table-component';
 import ProductTablePaginationComponent from './product-table-pagination-component';
 import ProductTableItemsOrderedComponent from './product-table-items-ordered-component';
 import ProductTableShowEntries from './product-table-show-entries-component';
+import ProductTableItemsPerPageComponent from './product-table-items-per-page-component';
 import { addToCart, removeToCart } from 'redux/actions/new-order';
 
 class ProductTableContainer extends Component {
@@ -30,16 +31,10 @@ class ProductTableContainer extends Component {
       <div className="container">
         <div className="row">
           <div className="col-6">
-            Show &nbsp;
-            <select name="showEntries" onChange={event => this.getProducts({ items_per_page: event.target.value })}>
-              <option>5</option>
-              <option>10</option>
-              <option>20</option>
-              <option>30</option>
-              <option>40</option>
-              <option>50</option>
-            </select>
-            &nbsp; Entries
+            <ProductTableItemsPerPageComponent
+              getProducts={this.getProducts}
+              itemsPerPageArrayOptions={this.props.itemsPerPageArrayOptions}
+            />
           </div>
           <div className="col-6">
             <div className="col-12">
