@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductTableRowComponent from './product-table-row-component';
+import ProductTableRowNotFoundComponent from './product-table-row-not-found-component';
 
 const ProductTableComponent = (props) => {
   const {
@@ -7,17 +8,21 @@ const ProductTableComponent = (props) => {
     isProductListLoading,
     addToCart
   } = props;
-  const rows = [];
+  let rows = [];
 
-  products.forEach((product) => {
-    rows.push(
-      <ProductTableRowComponent
-        product={product}
-        key={product._id}
-        addToCart={addToCart}
-      />
-    );
-  });
+  if (Object.keys(products).length > 0) {
+    products.forEach((product) => {
+      rows.push(
+        <ProductTableRowComponent
+          product={product}
+          key={product._id}
+          addToCart={addToCart}
+        />
+      );
+    });
+  } else {
+    rows = <ProductTableRowNotFoundComponent />;
+  }
 
   return (
     <div>

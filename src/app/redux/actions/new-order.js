@@ -63,10 +63,11 @@ export function isBillingAddressInputsVisible(isVisible) {
   }
 }
 
-export function getProducts() {
+export function getProducts(filters = {}) {
   return dispatch => {
+    dispatch(saveProductTableFilters(filters));
     dispatch(isProductListLoading(true));
-    return fetch.get('/api/products').then(res => {
+    return fetch.get('/api/products', { params: filters }).then(res => {
       dispatch(isProductListLoading(false));
       dispatch(setProductList(res.data));
     }).catch((err) => {
@@ -87,5 +88,12 @@ export function removeToCart(productId) {
   return {
     type: types.REMOVE_TO_CART,
     productId
+  }
+}
+
+export function saveProductTableFilters(filters) {
+  return {
+    type: types.SAVE_PRODUCT_TABLE_FILTERS,
+    filters
   }
 }

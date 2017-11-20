@@ -7,12 +7,23 @@ import ProductTableComponent from './product-table-component';
 import ProductTablePaginationComponent from './product-table-pagination-component';
 import ProductTableItemsOrderedComponent from './product-table-items-ordered-component';
 import ProductTableShowEntries from './product-table-show-entries-component';
+import ProductTableItemsPerPageComponent from './product-table-items-per-page-component';
 import { addToCart, removeToCart } from 'redux/actions/new-order';
 
 class ProductTableContainer extends Component {
 
+  constructor(props) {
+    super(props);
+    this.getProducts = this.getProducts.bind(this);
+  }
+
   componentDidMount() {
-    this.props.getProducts();
+    this.getProducts();
+  }
+
+  getProducts(filters) {
+    const filtersMerged = Object.assign({}, this.props.filters, filters);
+    this.props.getProducts(filtersMerged);
   }
 
   render() {
@@ -20,18 +31,15 @@ class ProductTableContainer extends Component {
       <div className="container">
         <div className="row">
           <div className="col-6">
-            Show &nbsp;
-            <select name="showEntries">
-              <option>10</option>
-              <option>25</option>
-              <option>50</option>
-            </select>
-            &nbsp; Entries
+            <ProductTableItemsPerPageComponent
+              getProducts={this.getProducts}
+              itemsPerPageArrayOptions={this.props.itemsPerPageArrayOptions}
+            />
           </div>
           <div className="col-6">
             <div className="col-12">
               <div className="pull-right">
-                <ProductSearchBarComponent />
+                <ProductSearchBarComponent getProducts={this.getProducts} />
               </div>
             </div>
           </div>
@@ -49,7 +57,7 @@ class ProductTableContainer extends Component {
         <div className="row">
           <div className="col-6">
             {
-              this.props.total_rows > 0 &&
+              !this.props.isProductListLoading && this.props.total_rows > 0 &&
               <ProductTableShowEntries
                 pageNumber={this.props.page}
                 totalPages={this.props.total_pages}
@@ -89,7 +97,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getProducts: () => { dispatch(getProducts()) },
+    getProducts: (query) => { dispatch(getProducts(query)) },
     addToCart: (productId) => { dispatch(addToCart(productId)) },
     removeToCart: (productId) => { dispatch(removeToCart(productId)) }
   }
