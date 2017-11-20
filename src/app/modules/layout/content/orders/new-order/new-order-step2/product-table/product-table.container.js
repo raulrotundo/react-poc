@@ -67,7 +67,10 @@ class ProductTableContainer extends Component {
           </div>
           <div className="col-6">
             <div className="pull-right">
-              <ProductTablePaginationComponent />
+              {
+                !this.props.isProductListLoading && this.props.total_rows > 0 &&
+                <ProductTablePaginationComponent />
+              }
             </div>
           </div>
         </div>
