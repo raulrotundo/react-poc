@@ -19,6 +19,7 @@ class NewOrderStep3Container extends Component {
     return <NewOrderStep3Component
       activeStep={this.props.form.orderStep}
       getNewOrderStep={this.getNewOrderStep}
+      cart={this.props.form.step2.cart}
     />;
   }
 }
