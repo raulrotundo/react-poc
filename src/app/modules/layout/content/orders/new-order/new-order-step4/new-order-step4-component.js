@@ -6,8 +6,14 @@ const NewOrderStep4Component = (props) => {
     <div className="card">
       <div className="card-header">Step {activeStep} - Checkout</div>
       <div className="card-block">
-        Step {activeStep} Content
+        <div className="container">
+          <div className="row">
+            <div className="col-12 text-center">
+              <p>Thanks for your purchase</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
   );
 }
