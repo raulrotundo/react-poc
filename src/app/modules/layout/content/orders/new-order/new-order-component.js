@@ -6,19 +6,16 @@ import NewOrderStep1Container from './new-order-step1/new-order-step1-container'
 import NewOrderStep2Container from './new-order-step2/new-order-step2-container';
 import NewOrderStep3Container from './new-order-step3/new-order-step3-container';
 import NewOrderStep4Container from './new-order-step4/new-order-step4-container';
+import NewOrderStepNavigationContainer from './new-order-step-navigation/new-order-step-navigation-container';
 
 const NewOrderComponent = (props) => {
-  const { activeStep, getNewOrderStep, match } = props;
+  const { activeStep, match } = props;
   return (
     <div>
       <PageHeaderComponent heading="New Order" />
       <div className="row">
         <div className="col-xl-12">
-          <NewOrderStepsComponent
-            activeStep={activeStep}
-            getNewOrderStep={getNewOrderStep}
-            newOrderBaseUrl={match.url}
-          />
+          <NewOrderStepsComponent activeStep={activeStep} />
         </div>
       </div>
       <div className="row">
@@ -37,6 +34,11 @@ const NewOrderComponent = (props) => {
               <NewOrderStep4Container />
             )} />
           </Switch>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col-xl-12">
+          <NewOrderStepNavigationContainer match={match} />
         </div>
       </div>
     </div>
