@@ -1,13 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { MemoryRouter } from 'react-router-dom';
+import { shallow } from 'enzyme';
 import HomeComponent from './home-component';
 
-it('render HomeComponent without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
-    <MemoryRouter>
-      <HomeComponent />
-    </MemoryRouter>
-    , div);
+describe('HomeComponent Test', () => {
+  it('render HomeComponent without crashing', () => {
+    shallow(<HomeComponent />)
+  });
+
+  it('render welcome message', () => {
+    const wrapper = shallow(<HomeComponent />);
+    const welcome = <h2>Welcome to React App POC</h2>;
+
+    expect(wrapper.contains(welcome)).toEqual(true);
+  });
 });
