@@ -1,7 +1,7 @@
 import React from 'react';
 import StatComponent from 'modules/shared/stat/stat-component';
 
-const Dashboard = () => {
+const DashboardComponent = () => {
   return (
     <div>
       <h2 className="page-header">Dashboard</h2>
@@ -23,4 +23,4 @@ const Dashboard = () => {
   );
 }
 
-export default Dashboard;
+export default DashboardComponent;
