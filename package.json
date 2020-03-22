@@ -9,7 +9,6 @@
     "enzyme-adapter-react-16": "^1.1.0",
     "font-awesome": "^4.7.0",
     "jwt-decode": "^2.2.0",
-    "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
@@ -36,5 +35,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "coverage": "react-scripts test --env=jsdom --coverage && http-server -c-1 -o -p 9875 ./coverage/lcov-report/"
+  },
+  "devDependencies": {
+    "node-sass-chokidar": "^1.4.0"
   }
 }
