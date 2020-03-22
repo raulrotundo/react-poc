@@ -10,7 +10,7 @@ const ProductTableComponent = (props) => {
   } = props;
   let rows = [];
 
-  if (Object.keys(products).length > 0) {
+  if (products != undefined && Object.keys(products).length > 0) {
     products.forEach((product) => {
       rows.push(
         <ProductTableRowComponent
