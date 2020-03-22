@@ -9,6 +9,10 @@ class FetchWrapper {
     });
     // Add a response interceptor
     fetch.interceptors.response.use(this.handleSuccess, this.handleError);
+    // Set authorization token as default
+    if (localStorage.jwtToken) {
+      fetch.defaults.headers.common['Authorization'] = `Bearer ${localStorage.jwtToken}`;
+    }
     this.fetch = fetch;
   }
 
